@@ -14,6 +14,7 @@ extension UIColor {
     static let blueShadowColor              = UIColor(hexCode: "C1D0FF")
     static let brandLogoColor               = UIColor(hexCode: "4667D1")
     static let buttonColor                  = UIColor(hexCode: "58B1F2")
+    static let loginNextButtonColor         = UIColor(hexCode: "1780CD")
     static let surveyOptionBackroundColor   = UIColor(hexCode: "E5EFFE")
     static let voteResultColor              = UIColor(hexCode: "9AC8FF")
     
