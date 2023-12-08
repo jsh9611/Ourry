@@ -31,17 +31,17 @@ class LoginViewController: UIViewController {
     
     private lazy var emailErrorLabel: UILabel = {
         let label = UILabel()
-        label.text = "Email Error"
+        label.text = "이메일을 확인해주세요."
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.textColor = .red
+        label.textColor = .clear
         return label
     }()
     
     private lazy var passwordErrorLabel: UILabel = {
         let label = UILabel()
-        label.text = "Password Error"
+        label.text = "비밀번호를 확인해주세요."
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.textColor = .red
+        label.textColor = .clear
         return label
     }()
     
@@ -186,15 +186,15 @@ class LoginViewController: UIViewController {
     @objc func loginButtonTapped() {
                 
         if !isValidEmail(email: emailTextField.text ?? "") {
-            emailErrorLabel.text = "이메일을 확인해주세요."
-            return
+            emailErrorLabel.textColor = .red
         } else {
-            emailErrorLabel.text = ""
+            emailErrorLabel.textColor = .clear
         }
         
         if passwordTextField.text?.count ?? 0 < 5 {
-            passwordErrorLabel.text = "비밀번호를 확인해주세요."
-            return
+            passwordErrorLabel.textColor = .red
+        } else {
+            passwordErrorLabel.textColor = .clear
         }
         
         //TODO: 로그인 로직
