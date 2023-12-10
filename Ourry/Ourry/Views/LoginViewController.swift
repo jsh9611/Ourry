@@ -209,8 +209,8 @@ class LoginViewController: UIViewController {
 
     // 비밀번호 재설정 로직
     @objc func forgotPasswordButtonTapped() {
-        // Implement forgot password navigation logic here
-        print("forgotPasswordButtonTapped")
+        let emailVerificationViewController = ResetEmailVerifyViewController()
+        navigationController?.pushViewController(emailVerificationViewController, animated:true)
     }
     
     // 이메일 유효성 검사

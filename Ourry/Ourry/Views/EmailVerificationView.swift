@@ -21,11 +21,13 @@ class EmailVerificationView: UIView, UITextFieldDelegate {
     
     private lazy var emailTextField: PlaneTextField = {
         let textField = PlaneTextField(placeholder: "이메일을 입력하세요")
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
     
     private lazy var emailVerificationCodeTextField: PlaneTextField = {
         let textField = PlaneTextField(placeholder: "인증번호를 입력하세요")
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
 
@@ -50,6 +52,8 @@ class EmailVerificationView: UIView, UITextFieldDelegate {
         button.layer.cornerRadius = 8
         return button
     }()
+    
+    var isVerified: Bool = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -102,6 +106,11 @@ class EmailVerificationView: UIView, UITextFieldDelegate {
             make.width.equalTo(80)
             make.height.equalTo(36)
         }
+    }
+    
+    @objc func textFieldDidChange() {
+        self.isVerified = (self.emailTextField.text?.count ?? 0 > 0) && (self.emailVerificationCodeTextField.text?.count ?? 0 > 0)
+        print(isVerified)
     }
     
     func getEmailValue() -> String {
