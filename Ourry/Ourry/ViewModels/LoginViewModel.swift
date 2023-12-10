@@ -21,11 +21,6 @@ class LoginViewModel {
         }
     }
     
-//    var users: [User] = [
-//        User(email: "abc1234@naver.com", password: "qwerty1234"),
-//        User(email: "dazzlynnnn@gmail.com", password: "asdfasdf5678")
-//    ]
-    
     // 아이디 형식 검사
     func isValidEmail(id: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

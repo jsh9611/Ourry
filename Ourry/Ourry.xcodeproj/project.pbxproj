@@ -25,6 +25,10 @@
 		11793E662B1F3B07008FC22C /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E652B1F3B07008FC22C /* EmailVerificationView.swift */; };
 		11793E682B205C2B008FC22C /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E672B205C2B008FC22C /* PasswordView.swift */; };
 		11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E692B206D21008FC22C /* AdditionalInfoView.swift */; };
+		11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E732B22F160008FC22C /* LoginNextButton.swift */; };
+		11793E762B24AF80008FC22C /* ResetEmailVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */; };
+		11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E772B24B47B008FC22C /* LoginBackButton.swift */; };
+		11793E7C2B25A40D008FC22C /* ResetPasswordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		11793E652B1F3B07008FC22C /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 		11793E672B205C2B008FC22C /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		11793E692B206D21008FC22C /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
+		11793E732B22F160008FC22C /* LoginNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNextButton.swift; sourceTree = "<group>"; };
+		11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetEmailVerifyViewController.swift; sourceTree = "<group>"; };
+		11793E772B24B47B008FC22C /* LoginBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBackButton.swift; sourceTree = "<group>"; };
+		11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +123,9 @@
 		11793E522B1882FC008FC22C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				115E26552B1618BE00FCBEE8 /* LoginViewController.swift */,
+				11793E702B22EBE3008FC22C /* Components */,
+				11793E6D2B22EB42008FC22C /* Users */,
 				11793E4F2B1731A4008FC22C /* TempViewController.swift */,
-				11793E642B1F1510008FC22C /* SignUp */,
-				11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */,
-				11793E602B188610008FC22C /* PlaneTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +155,44 @@
 				11793E692B206D21008FC22C /* AdditionalInfoView.swift */,
 			);
 			name = SignUp;
+			sourceTree = "<group>";
+		};
+		11793E6D2B22EB42008FC22C /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				11793E6E2B22EBA8008FC22C /* Login */,
+				11793E642B1F1510008FC22C /* SignUp */,
+				11793E6F2B22EBB1008FC22C /* ResetPassword */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		11793E6E2B22EBA8008FC22C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				115E26552B1618BE00FCBEE8 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		11793E6F2B22EBB1008FC22C /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */,
+				11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */,
+			);
+			name = ResetPassword;
+			sourceTree = "<group>";
+		};
+		11793E702B22EBE3008FC22C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */,
+				11793E602B188610008FC22C /* PlaneTextField.swift */,
+				11793E732B22F160008FC22C /* LoginNextButton.swift */,
+				11793E772B24B47B008FC22C /* LoginBackButton.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
+				11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */,
 				11793E682B205C2B008FC22C /* PasswordView.swift in Sources */,
+				11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */,
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
+				11793E7C2B25A40D008FC22C /* ResetPasswordInputViewController.swift in Sources */,
 				11793E662B1F3B07008FC22C /* EmailVerificationView.swift in Sources */,
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
 				11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */,
@@ -238,6 +285,7 @@
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
 				11793E632B1DC699008FC22C /* SignUpViewController.swift in Sources */,
 				11793E612B188610008FC22C /* PlaneTextField.swift in Sources */,
+				11793E762B24AF80008FC22C /* ResetEmailVerifyViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
 				11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */,
 				115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */,

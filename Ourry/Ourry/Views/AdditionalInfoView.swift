@@ -73,14 +73,10 @@ class AdditionalInfoView: UIView {
     
     //MARK: - Functions
     private func setupUI() {
+        // 닉네임 입력
         addSubview(nicknameTitle)
         addSubview(nicknameTextField)
-        addSubview(phoneNumberTextField)
-        
-        addSubview(phoneNumberTitle)
         addSubview(nicknameErrorLabel)
-        addSubview(phoneNumberErrorLabel)
-        
         nicknameTitle.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top)
             make.leading.trailing.equalTo(self)
@@ -96,6 +92,10 @@ class AdditionalInfoView: UIView {
             make.leading.trailing.equalTo(self)
         }
         
+        // 휴대폰번호 입력
+        addSubview(phoneNumberTitle)
+        addSubview(phoneNumberTextField)
+        addSubview(phoneNumberErrorLabel)
         phoneNumberTitle.snp.makeConstraints{ make in
             make.top.equalTo(nicknameTextField.snp.bottom).offset(48)
             make.leading.trailing.equalTo(self)

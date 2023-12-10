@@ -73,14 +73,10 @@ class PasswordView: UIView {
     
     //MARK: - Functions
     private func setupUI() {
+        // 비밀번호 입력
         addSubview(passwordTitle)
         addSubview(passwordTextField)
-        addSubview(confirmPasswordTextField)
-        
-        addSubview(passwordCheckTitle)
         addSubview(passwordErrorLabel)
-        addSubview(confirmPasswordErrorLabel)
-        
         passwordTitle.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top)
             make.leading.trailing.equalTo(self)
@@ -95,7 +91,11 @@ class PasswordView: UIView {
             make.top.equalTo(passwordTextField.snp.bottom).offset(6)
             make.leading.trailing.equalTo(self)
         }
-        
+
+        // 비밀번호 확인
+        addSubview(passwordCheckTitle)
+        addSubview(confirmPasswordTextField)
+        addSubview(confirmPasswordErrorLabel)
         passwordCheckTitle.snp.makeConstraints{ make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(48)
             make.leading.trailing.equalTo(self)
