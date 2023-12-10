@@ -13,7 +13,7 @@ class PlaneTextField: UITextField {
         super.init(frame: .zero)
         
         self.placeholder = placeholder
-        
+        self.autocapitalizationType = .none
         self.borderStyle = .roundedRect
     }
 

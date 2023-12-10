@@ -14,6 +14,7 @@ class BlueShadowTextField: UITextField {
         
         self.placeholder = placeholder
         self.borderStyle = .roundedRect
+        self.autocapitalizationType = .none
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.blueShadowColor.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
