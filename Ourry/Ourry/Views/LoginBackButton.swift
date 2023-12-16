@@ -24,7 +24,7 @@ class LoginBackButton: UIButton {
         layer.cornerRadius = 8
         layer.borderWidth = 2
         setTitleColor(.black, for: .normal)
-        layer.borderColor = UIColor.clear.cgColor
+        layer.borderColor = UIColor.black.cgColor
         backgroundColor = .white
     }
 }
