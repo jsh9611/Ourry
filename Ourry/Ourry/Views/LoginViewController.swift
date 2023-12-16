@@ -111,6 +111,7 @@ class LoginViewController: UIViewController {
         view.addSubview(nonMemberLogin)
 
         setupConstraints()
+        self.hideKeyboardWhenTappedAround()
     }
 
     //MARK: - Constraints
@@ -203,13 +204,13 @@ class LoginViewController: UIViewController {
 
     // 회원가입 버튼 로직
     @objc func signupButtonTapped() {
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated:true)
+        let signUpEmailViewController = SignUpEmailViewController()
+        navigationController?.pushViewController(signUpEmailViewController, animated:true)
     }
 
     // 비밀번호 재설정 로직
     @objc func forgotPasswordButtonTapped() {
-        let emailVerificationViewController = ResetEmailVerifyViewController()
+        let emailVerificationViewController = PasswordResetEmailVerificationViewController()
         navigationController?.pushViewController(emailVerificationViewController, animated:true)
     }
     

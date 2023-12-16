@@ -1,20 +1,20 @@
 //
-//  ResetEmailVerifyViewController.swift
+//  SignUpEmailViewController.swift
 //  Ourry
 //
-//  Created by SeongHoon Jang on 2023/12/09.
+//  Created by SeongHoon Jang on 12/13/23.
 //
 
 import UIKit
 import SnapKit
 
-class ResetEmailVerifyViewController: UIViewController {
+class SignUpEmailViewController: UIViewController {
     
     private let emailTitle: UILabel = {
         let title = UILabel()
         title.text = "이메일 인증"
         title.textColor = .black
-        title.font = .preferredFont(forTextStyle: .headline)
+        title.font = .systemFont(ofSize: 24, weight: .bold)
         return title
     }()
     
@@ -29,7 +29,7 @@ class ResetEmailVerifyViewController: UIViewController {
         textField.addTarget(self, action: #selector(authTextFieldDidChange), for: .editingChanged)
         return textField
     }()
-
+    
     private lazy var verificationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("인증번호 요청", for: .normal)
@@ -51,7 +51,7 @@ class ResetEmailVerifyViewController: UIViewController {
         button.addTarget(self, action: #selector(authConfirmButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     private var countdownLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -60,7 +60,7 @@ class ResetEmailVerifyViewController: UIViewController {
         label.textAlignment = .right
         return label
     }()
-
+    
     private lazy var nextButton: LoginNextButton = {
         let button = LoginNextButton()
         button.setTitle("다음화면으로 이동", for: .normal)
@@ -70,9 +70,20 @@ class ResetEmailVerifyViewController: UIViewController {
     
     private lazy var backButton: LoginBackButton = {
         let button = LoginBackButton()
-        button.setTitle("취소하기", for: .normal)
+        button.setTitle("회원가입 취소", for: .normal)
         button.addTarget(self, action: #selector(goBackPage), for: .touchUpInside)
         return button
+    }()
+    
+    // 화면전환 버튼
+    let pushAndPop: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
 
     private var countdownTimer: Timer?
@@ -81,15 +92,15 @@ class ResetEmailVerifyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.title = "회원가입"
+        
+        self.hideKeyboardWhenTappedAround()
         setupUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true) // 뷰 컨트롤러가 나타날 때 숨기기
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true) // 뷰 컨트롤러가 사라질 때 나타내기
+        
+        // 제거해야함
+        nextButton.isEnable = true
     }
 
     private func setupUI() {
@@ -142,23 +153,52 @@ class ResetEmailVerifyViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        // 화면 전환 버튼
-        view.addSubview(nextButton)
-        view.addSubview(backButton)
-        nextButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().multipliedBy(1.5)
+
+        // stackView에 View 추가
+        pushAndPop.addArrangedSubview(nextButton)
+        pushAndPop.addArrangedSubview(backButton)
+        view.addSubview(pushAndPop)
+
+        pushAndPop.snp.makeConstraints { make in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(40)
+            make.height.equalTo(88)
         }
- 
-        backButton.snp.makeConstraints { make in
-            make.top.equalTo(nextButton.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(40)
-        }
-        
+
         // 이메일 인증요청 후에 등장
         hideAuthField()
+        
+        // 키보드 이벤트 감지
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // 키보드가 올라올 때 레이아웃 조정
+        @objc func keyboardWillShow(_ notification: Notification) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+                pushAndPop.snp.updateConstraints { make in
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-keyboardHeight + 20)
+                }
+
+                UIView.animate(withDuration: 0.3) {
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+
+        // 키보드가 내려갈 때 레이아웃 조정
+        @objc func keyboardWillHide(_ notification: Notification) {
+            pushAndPop.snp.updateConstraints { make in
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            }
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    
+    @objc func doneButtonAction (){
+        self.view.endEditing(true)
     }
     
     private func hideAuthField() {
@@ -195,7 +235,7 @@ class ResetEmailVerifyViewController: UIViewController {
         //TODO: 인증 코드 전송 로직 구현
         startCountdown()
         showAuthField()
-        verificationButton.setTitle("인증번호 재발송", for: .normal)
+        verificationButton.setTitle("인증번호 전송됨", for: .normal)
         verificationButton.isEnabled = false
         verificationButton.backgroundColor = .gray
     }
@@ -217,9 +257,16 @@ class ResetEmailVerifyViewController: UIViewController {
             self.verificationButton.isEnabled = false
             self.verificationButton.backgroundColor = .gray
             
+            self.authInputTextField.isUserInteractionEnabled = false
+            self.authInputTextField.backgroundColor = .systemGray6
+            self.authInputTextField.textColor = .systemGray
+            
+            self.authConfirmButton.isEnabled = false
+            
         }
         
         alert.addAction(loginAction)
+        self.doneButtonAction()
         present(alert, animated: true, completion: nil)
     }
 
@@ -234,6 +281,7 @@ class ResetEmailVerifyViewController: UIViewController {
             countdownTimer?.invalidate()
             verificationButton.isEnabled = true
             verificationButton.backgroundColor = .buttonColor
+            verificationButton.setTitle("인증번호 재발송", for: .normal)
             isVerificationButtonEnable.toggle()
             return
         }
@@ -246,12 +294,11 @@ class ResetEmailVerifyViewController: UIViewController {
     }
     
     @objc private func goNextPage() {
-        let passwordInputViewController = ResetPasswordInputViewController()
-        navigationController?.pushViewController(passwordInputViewController, animated:true)
+        let signUpPasswordViewController = SignUpPasswordViewController()
+        navigationController?.pushViewController(signUpPasswordViewController, animated:true)
     }
     
     @objc private func goBackPage() {
         navigationController?.popViewController(animated: true)
     }
 }
-
