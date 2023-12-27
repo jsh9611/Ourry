@@ -7,31 +7,34 @@
 
 import Foundation
 
-class LoginViewModel {
-    private let authService: AuthService
+protocol LoginViewModelDelegate: AnyObject {
+    func loginDidSucceed(jwtToken: String)
+    func loginDidFail(error: AuthError)
+}
 
-    init(authService: AuthService) {
-        self.authService = authService
+class LoginViewModel {
+    
+    weak var delegate: LoginViewModelDelegate?
+
+    init(delegate: LoginViewModelDelegate) {
+        self.delegate = delegate
     }
 
-    func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
-        let user = User(email: email, password: password)
-        authService.login(user: user) { success in
-            completion(success)
+    func login(email: String, password: String) {
+        // 서버에 로그인 요청 보내기
+        LoginManager.shared.login(email: email, password: password) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let jwtToken):
+                // 로그인 성공
+                self.delegate?.loginDidSucceed(jwtToken: jwtToken)
+            case .failure(let error):
+                // 로그인 실패
+                self.delegate?.loginDidFail(error: error)
+            }
         }
     }
     
-    // 아이디 형식 검사
-    func isValidEmail(id: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: id)
-    }
-    
-    // 비밀번호 형식 검사
-    func isValidPassword(pwd: String) -> Bool {
-        let passwordRegEx = "^[a-zA-Z0-9]{8,}$"
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
-        return passwordTest.evaluate(with: pwd)
-    }
+
 }
