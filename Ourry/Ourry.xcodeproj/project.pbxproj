@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3A22B29DF16009B1C51 /* SignUpEmailViewController.swift */; };
+		1107A3A52B2B327A009B1C51 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3A42B2B327A009B1C51 /* SignUpPasswordViewController.swift */; };
+		1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3A62B2B32D4009B1C51 /* SignUpInformationViewController.swift */; };
+		1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3A82B2D894C009B1C51 /* LoginManager.swift */; };
+		1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3AA2B2D8985009B1C51 /* Login.swift */; };
+		1107A3B12B301024009B1C51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1107A3B02B301024009B1C51 /* Alamofire */; };
+		1107A3E82B3AAA98009B1C51 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */; };
+		1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */; };
 		115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26512B1618BE00FCBEE8 /* AppDelegate.swift */; };
 		115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */; };
 		115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26552B1618BE00FCBEE8 /* LoginViewController.swift */; };
@@ -26,12 +34,19 @@
 		11793E682B205C2B008FC22C /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E672B205C2B008FC22C /* PasswordView.swift */; };
 		11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E692B206D21008FC22C /* AdditionalInfoView.swift */; };
 		11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E732B22F160008FC22C /* LoginNextButton.swift */; };
-		11793E762B24AF80008FC22C /* ResetEmailVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */; };
+		11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */; };
 		11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E772B24B47B008FC22C /* LoginBackButton.swift */; };
-		11793E7C2B25A40D008FC22C /* ResetPasswordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */; };
+		11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1107A3A22B29DF16009B1C51 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
+		1107A3A42B2B327A009B1C51 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
+		1107A3A62B2B32D4009B1C51 /* SignUpInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformationViewController.swift; sourceTree = "<group>"; };
+		1107A3A82B2D894C009B1C51 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		1107A3AA2B2D8985009B1C51 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
+		1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetManager.swift; sourceTree = "<group>"; };
 		115E264E2B1618BE00FCBEE8 /* Ourry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ourry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115E26512B1618BE00FCBEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +68,9 @@
 		11793E672B205C2B008FC22C /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		11793E692B206D21008FC22C /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		11793E732B22F160008FC22C /* LoginNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNextButton.swift; sourceTree = "<group>"; };
-		11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetEmailVerifyViewController.swift; sourceTree = "<group>"; };
+		11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetEmailVerificationViewController.swift; sourceTree = "<group>"; };
 		11793E772B24B47B008FC22C /* LoginBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBackButton.swift; sourceTree = "<group>"; };
-		11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordInputViewController.swift; sourceTree = "<group>"; };
+		11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetNewPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1107A3B12B301024009B1C51 /* Alamofire in Frameworks */,
 				115E266D2B161EA300FCBEE8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				11793E542B188321008FC22C /* User.swift */,
+				1107A3AA2B2D8985009B1C51 /* Login.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				11793E572B188370008FC22C /* AuthService.swift */,
+				1107A3A82B2D894C009B1C51 /* LoginManager.swift */,
+				1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */,
+				1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -153,6 +173,9 @@
 				11793E652B1F3B07008FC22C /* EmailVerificationView.swift */,
 				11793E672B205C2B008FC22C /* PasswordView.swift */,
 				11793E692B206D21008FC22C /* AdditionalInfoView.swift */,
+				1107A3A22B29DF16009B1C51 /* SignUpEmailViewController.swift */,
+				1107A3A42B2B327A009B1C51 /* SignUpPasswordViewController.swift */,
+				1107A3A62B2B32D4009B1C51 /* SignUpInformationViewController.swift */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -162,7 +185,7 @@
 			children = (
 				11793E6E2B22EBA8008FC22C /* Login */,
 				11793E642B1F1510008FC22C /* SignUp */,
-				11793E6F2B22EBB1008FC22C /* ResetPassword */,
+				11793E6F2B22EBB1008FC22C /* PasswordReset */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -175,13 +198,13 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		11793E6F2B22EBB1008FC22C /* ResetPassword */ = {
+		11793E6F2B22EBB1008FC22C /* PasswordReset */ = {
 			isa = PBXGroup;
 			children = (
-				11793E752B24AF80008FC22C /* ResetEmailVerifyViewController.swift */,
-				11793E7B2B25A40D008FC22C /* ResetPasswordInputViewController.swift */,
+				11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */,
+				11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */,
 			);
-			name = ResetPassword;
+			name = PasswordReset;
 			sourceTree = "<group>";
 		};
 		11793E702B22EBE3008FC22C /* Components */ = {
@@ -213,6 +236,7 @@
 			name = Ourry;
 			packageProductDependencies = (
 				115E266C2B161EA300FCBEE8 /* SnapKit */,
+				1107A3B02B301024009B1C51 /* Alamofire */,
 			);
 			productName = Ourry;
 			productReference = 115E264E2B1618BE00FCBEE8 /* Ourry.app */;
@@ -225,7 +249,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					115E264D2B1618BE00FCBEE8 = {
@@ -244,6 +268,7 @@
 			mainGroup = 115E26452B1618BE00FCBEE8;
 			packageReferences = (
 				115E266B2B161EA300FCBEE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1107A3AF2B301024009B1C51 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 115E264F2B1618BE00FCBEE8 /* Products */;
 			projectDirPath = "";
@@ -276,18 +301,25 @@
 				11793E682B205C2B008FC22C /* PasswordView.swift in Sources */,
 				11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */,
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
-				11793E7C2B25A40D008FC22C /* ResetPasswordInputViewController.swift in Sources */,
+				11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */,
 				11793E662B1F3B07008FC22C /* EmailVerificationView.swift in Sources */,
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
 				11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
 				11793E582B188370008FC22C /* AuthService.swift in Sources */,
+				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
+				1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */,
+				1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */,
+				1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */,
+				1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */,
 				11793E632B1DC699008FC22C /* SignUpViewController.swift in Sources */,
 				11793E612B188610008FC22C /* PlaneTextField.swift in Sources */,
-				11793E762B24AF80008FC22C /* ResetEmailVerifyViewController.swift in Sources */,
+				11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
 				11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */,
+				1107A3E82B3AAA98009B1C51 /* CreateAccountManager.swift in Sources */,
+				1107A3A52B2B327A009B1C51 /* SignUpPasswordViewController.swift in Sources */,
 				115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */,
 				11793E5B2B1883AB008FC22C /* LoginViewModel.swift in Sources */,
 			);
@@ -345,6 +377,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -366,6 +399,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -406,6 +440,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -510,6 +546,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1107A3AF2B301024009B1C51 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		115E266B2B161EA300FCBEE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -521,6 +565,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1107A3B02B301024009B1C51 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1107A3AF2B301024009B1C51 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		115E266C2B161EA300FCBEE8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 115E266B2B161EA300FCBEE8 /* XCRemoteSwiftPackageReference "SnapKit" */;

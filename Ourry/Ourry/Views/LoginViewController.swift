@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class LoginViewController: UIViewController {
+    
+    private lazy var loginViewModel: LoginViewModel = {
+        return LoginViewModel(delegate: self)
+    }()
 
     private lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -31,7 +35,7 @@ class LoginViewController: UIViewController {
     
     private lazy var emailErrorLabel: UILabel = {
         let label = UILabel()
-        label.text = "이메일을 확인해주세요."
+        label.text = "이메일 형식을 확인해주세요."
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.textColor = .clear
         return label
@@ -111,6 +115,7 @@ class LoginViewController: UIViewController {
         view.addSubview(nonMemberLogin)
 
         setupConstraints()
+        self.hideKeyboardWhenTappedAround()
     }
 
     //MARK: - Constraints
@@ -184,18 +189,24 @@ class LoginViewController: UIViewController {
 
     // 로그인 버튼 로직
     @objc func loginButtonTapped() {
-                
-        if !isValidEmail(email: emailTextField.text ?? "") {
-            emailErrorLabel.textColor = .red
-        } else {
-            emailErrorLabel.textColor = .clear
-        }
         
-        if passwordTextField.text?.count ?? 0 < 5 {
-            passwordErrorLabel.textColor = .red
-        } else {
-            passwordErrorLabel.textColor = .clear
+        // 유효성 검사
+        guard let email = emailTextField.text, isValidEmail(email: email) else {
+            // 유효하지 않은 이메일 또는 비밀번호 형식일 경우 처리
+            emailErrorLabel.textColor = .red
+            return
         }
+        emailErrorLabel.textColor = .clear
+        
+        guard let password = passwordTextField.text, isValidPassword(pw: password) else {
+            // 유효하지 않은 이메일 또는 비밀번호 형식일 경우 처리
+            passwordErrorLabel.textColor = .red
+            return
+        }
+        passwordErrorLabel.textColor = .clear
+
+        // 뷰 모델을 통해 로그인 요청 보내기
+        loginViewModel.login(email: email, password: password)
         
         //TODO: 로그인 로직
         // dismiss(animated: true)
@@ -203,13 +214,13 @@ class LoginViewController: UIViewController {
 
     // 회원가입 버튼 로직
     @objc func signupButtonTapped() {
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated:true)
+        let signUpEmailViewController = SignUpEmailViewController()
+        navigationController?.pushViewController(signUpEmailViewController, animated:true)
     }
 
     // 비밀번호 재설정 로직
     @objc func forgotPasswordButtonTapped() {
-        let emailVerificationViewController = ResetEmailVerifyViewController()
+        let emailVerificationViewController = PasswordResetEmailVerificationViewController()
         navigationController?.pushViewController(emailVerificationViewController, animated:true)
     }
     
@@ -221,9 +232,36 @@ class LoginViewController: UIViewController {
     }
     
     // 비밀번호 유효성 검사
-    func isValidPassword(pwd: String) -> Bool {
-        return pwd.count > 4
+    func isValidPassword(pw: String) -> Bool {
+        return pw.count > 4
     }
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    
+    func loginDidSucceed(jwtToken: String) {
+        // 로그인 성공
+        print("Login successful. JWT Token: \(jwtToken)")
+
+    }
+    
+    func loginDidFail(error: AuthError) {
+        switch error {
+        case .networkError(let networkError):
+            // 네트워크 오류 처리
+            print("Network error: \(networkError.localizedDescription)")
+            
+        case .apiError(let code, let message):
+            // API 에러 처리
+            print("API error - Code: \(code), Message: \(message)")
+            
+        case .parsingError:
+            // JSON 파싱 오류 처리
+            print("JSON parsing error")
+
+        }
+    }
+    
 }
 
 //MARK: - 디버깅

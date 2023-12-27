@@ -58,6 +58,7 @@ class EmailVerificationView: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        emailTextField.delegate = self
     }
 
     required init?(coder: NSCoder) {
