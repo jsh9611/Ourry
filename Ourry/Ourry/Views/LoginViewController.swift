@@ -11,7 +11,8 @@ import SnapKit
 class LoginViewController: UIViewController {
     
     private lazy var loginViewModel: LoginViewModel = {
-        return LoginViewModel(delegate: self)
+        let loginManager = LoginManager()
+        return LoginViewModel(delegate: self, loginManager: loginManager)
     }()
 
     private lazy var dismissButton: UIButton = {

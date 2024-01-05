@@ -8,20 +8,19 @@
 import Foundation
 import Alamofire
 
-enum LoginResult {
-    case success(jwtToken: String)
-    case failure(error: AuthError)
-}
-
 class LoginManager {
     
-    static let shared = LoginManager()
+    private let session: Session
+    
+    init(session: Session = Session.default) {
+        self.session = session
+    }
     
     func login(email: String, password: String, completion: @escaping (Result<String, AuthError>) -> Void) {
         let urlString = "http://localhost:8080/member/memberLogin"
         let parameters: [String: Any] = ["email": email, "password": password]
 
-        AF.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: ["Content-Type": "application/json"])
+        session.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: ["Content-Type": "application/json"])
             .validate(statusCode: 200..<300)
             .responseDecodable(of: LoginResponse.self) { response in
                 switch response.result {
@@ -29,7 +28,10 @@ class LoginManager {
                     if let jwtToken = loginResponse.jwt {
                         completion(.success(jwtToken))
                     } else  {
-                        let authError = AuthError.apiError(code: loginResponse.code ?? "AuthError", message: loginResponse.message ?? "AuthError!!")
+                        let authError = AuthError.apiError(
+                            code: loginResponse.code ?? "M000",
+                            message: loginResponse.message ?? "Empty value!!"
+                        )
                         completion(.failure(authError))
                     }
 
