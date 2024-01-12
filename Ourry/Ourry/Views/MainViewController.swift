@@ -1,0 +1,179 @@
+//
+//  MainViewController.swift
+//  Ourry
+//
+//  Created by SeongHoon Jang on 1/5/24.
+//
+
+import UIKit
+import SnapKit
+
+class MainViewController: UIViewController {
+
+    // MARK: - Properties
+    // tltle view
+    private let mainTitleView = MainTitleView()
+    
+    // category collection view
+    private let categories = ["전체", "내 질문", "가정/육아", "결혼/연애", "부동산/경제", "사회생활", "학업", "커리어"]
+    private var selectedCategoryIndex = 0
+    private lazy var categoryCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)
+        
+        return collectionView
+    }()
+    
+    // main table view
+    private var questions: [String] = ["가나다라마", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차"]
+    private lazy var mainTableView: UITableView = {
+       let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 112
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(QuestionTableCell.self, forCellReuseIdentifier: QuestionTableCell.reuseIdentifier)
+        
+        return tableView
+    }()
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        setupMainTitleView()
+        setupMainTableView()
+        setupCategoryUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK: - Helpers
+    func selectCategory(at index: Int) {
+        selectedCategoryIndex = index
+        categoryCollectionView.reloadData()
+        categoryCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
+    //MARK: - Constraints
+    func setupMainTitleView() {
+        view.addSubview(mainTitleView)
+        
+        mainTitleView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(52)
+        }
+    }
+    
+    func setupCategoryUI() {
+        let categoryView = UIView(frame: CGRect(x: 0, y: 0, width: mainTableView.frame.width, height: 48))
+        categoryView.addSubview(categoryCollectionView)
+        
+        categoryCollectionView.snp.makeConstraints {
+            $0.edges.equalTo(categoryView)
+        }
+        
+        mainTableView.tableHeaderView = categoryView
+        
+        // Initially, select the first category
+        selectCategory(at: selectedCategoryIndex)
+    }
+    
+    func setupMainTableView() {
+        view.addSubview(mainTableView)
+        
+        mainTableView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view)
+            $0.top.equalTo(mainTitleView.snp.bottom)
+            $0.bottom.equalTo(view)
+        }
+    }
+    
+    // MARK: - Actions
+    func reloadDataForCurrentButton() {
+        //TODO: - 현재 버튼에 맞게 서버에 데이터 요청 및 갱신
+//        dataToShow = [
+//            "Item \(currentButtonTag)"
+//        ]
+        
+        print("reload main table view")
+        mainTableView.reloadData()
+    }
+}
+
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
+        cell.configure(with: categories[indexPath.item], isSelected: indexPath.item == selectedCategoryIndex)
+        return cell
+    }
+    
+    // 카테고리별 길이에 맞게 Cell 크기 설정
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let category = categories[indexPath.item]
+        let size = category.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0)])
+        
+        return CGSize(width: size.width + 24, height: 32)// CGSize(width: 100, height: collectionView.bounds.height)
+    }
+    
+    // 카테고리 변경 및 데이터 갱신
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectCategory(at: indexPath.item)
+        reloadDataForCurrentButton()
+    }
+}
+
+// MARK: - 질문 목록 / UITableViewDelegate, UITableViewDataSource
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        questions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTableCell.reuseIdentifier, for: indexPath) as! QuestionTableCell
+        
+        cell.separatorInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        cell.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        cell.configure(
+            title: questions[indexPath.row],
+            author: "홍길동",
+            answer: 123,
+            comment: 456,
+            date: Date(timeIntervalSinceNow: -72000)
+        )
+
+        return cell
+
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedQuestion = questions[indexPath.item]
+        //TODO: - 질문 내용에 대한 상세 페이지를 push로 이동
+        print(selectedQuestion)
+    }
+}
