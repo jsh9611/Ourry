@@ -15,6 +15,21 @@
 		1107A3B12B301024009B1C51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1107A3B02B301024009B1C51 /* Alamofire */; };
 		1107A3E82B3AAA98009B1C51 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */; };
 		1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */; };
+		1107A3F22B3FF026009B1C51 /* OurryNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3F12B3FF026009B1C51 /* OurryNetworkTests.swift */; };
+		1107A3F92B42C9D4009B1C51 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3F82B42C9D4009B1C51 /* MockURLProtocol.swift */; };
+		1107A4012B42E6D5009B1C51 /* mock_signup.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A3FF2B42E6B6009B1C51 /* mock_signup.json */; };
+		1107A4022B42E6E0009B1C51 /* mock_signup.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A3FF2B42E6B6009B1C51 /* mock_signup.json */; };
+		1107A4042B42E74A009B1C51 /* mock_m001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4032B42E74A009B1C51 /* mock_m001.json */; };
+		1107A4062B42E79B009B1C51 /* mock_login.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4052B42E79B009B1C51 /* mock_login.json */; };
+		1107A4082B42E7B4009B1C51 /* mock_m002.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4072B42E7B4009B1C51 /* mock_m002.json */; };
+		1107A40A2B42E7C6009B1C51 /* mock_m003.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4092B42E7C6009B1C51 /* mock_m003.json */; };
+		1107A40C2B42E7CF009B1C51 /* mock_m004.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A40B2B42E7CF009B1C51 /* mock_m004.json */; };
+		1107A40E2B42E811009B1C51 /* mock_authRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A40D2B42E811009B1C51 /* mock_authRequest.json */; };
+		1107A4102B42E835009B1C51 /* mock_authCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A40F2B42E835009B1C51 /* mock_authCheck.json */; };
+		1107A4122B42E856009B1C51 /* mock_m006.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4112B42E856009B1C51 /* mock_m006.json */; };
+		1107A4142B42E868009B1C51 /* mock_m007.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4132B42E868009B1C51 /* mock_m007.json */; };
+		1107A4162B42E892009B1C51 /* mock_pwReset.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4152B42E892009B1C51 /* mock_pwReset.json */; };
+		1107A4182B42E8A6009B1C51 /* mock_m005.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4172B42E8A6009B1C51 /* mock_m005.json */; };
 		115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26512B1618BE00FCBEE8 /* AppDelegate.swift */; };
 		115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */; };
 		115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26552B1618BE00FCBEE8 /* LoginViewController.swift */; };
@@ -29,15 +44,21 @@
 		11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5C2B188459008FC22C /* UIViewController+Extention.swift */; };
 		11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */; };
 		11793E612B188610008FC22C /* PlaneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E602B188610008FC22C /* PlaneTextField.swift */; };
-		11793E632B1DC699008FC22C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E622B1DC699008FC22C /* SignUpViewController.swift */; };
-		11793E662B1F3B07008FC22C /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E652B1F3B07008FC22C /* EmailVerificationView.swift */; };
-		11793E682B205C2B008FC22C /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E672B205C2B008FC22C /* PasswordView.swift */; };
-		11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E692B206D21008FC22C /* AdditionalInfoView.swift */; };
 		11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E732B22F160008FC22C /* LoginNextButton.swift */; };
 		11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */; };
 		11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E772B24B47B008FC22C /* LoginBackButton.swift */; };
 		11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1107A3F32B3FF026009B1C51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 115E26462B1618BE00FCBEE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 115E264D2B1618BE00FCBEE8;
+			remoteInfo = Ourry;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1107A3A22B29DF16009B1C51 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +68,21 @@
 		1107A3AA2B2D8985009B1C51 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
 		1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetManager.swift; sourceTree = "<group>"; };
+		1107A3EF2B3FF026009B1C51 /* OurryNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OurryNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1107A3F12B3FF026009B1C51 /* OurryNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurryNetworkTests.swift; sourceTree = "<group>"; };
+		1107A3F82B42C9D4009B1C51 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		1107A3FF2B42E6B6009B1C51 /* mock_signup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_signup.json; sourceTree = "<group>"; };
+		1107A4032B42E74A009B1C51 /* mock_m001.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m001.json; sourceTree = "<group>"; };
+		1107A4052B42E79B009B1C51 /* mock_login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_login.json; sourceTree = "<group>"; };
+		1107A4072B42E7B4009B1C51 /* mock_m002.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m002.json; sourceTree = "<group>"; };
+		1107A4092B42E7C6009B1C51 /* mock_m003.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m003.json; sourceTree = "<group>"; };
+		1107A40B2B42E7CF009B1C51 /* mock_m004.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m004.json; sourceTree = "<group>"; };
+		1107A40D2B42E811009B1C51 /* mock_authRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_authRequest.json; sourceTree = "<group>"; };
+		1107A40F2B42E835009B1C51 /* mock_authCheck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_authCheck.json; sourceTree = "<group>"; };
+		1107A4112B42E856009B1C51 /* mock_m006.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m006.json; sourceTree = "<group>"; };
+		1107A4132B42E868009B1C51 /* mock_m007.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m007.json; sourceTree = "<group>"; };
+		1107A4152B42E892009B1C51 /* mock_pwReset.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_pwReset.json; sourceTree = "<group>"; };
+		1107A4172B42E8A6009B1C51 /* mock_m005.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m005.json; sourceTree = "<group>"; };
 		115E264E2B1618BE00FCBEE8 /* Ourry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ourry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115E26512B1618BE00FCBEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,10 +99,6 @@
 		11793E5C2B188459008FC22C /* UIViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extention.swift"; sourceTree = "<group>"; };
 		11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueShadowTextField.swift; sourceTree = "<group>"; };
 		11793E602B188610008FC22C /* PlaneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneTextField.swift; sourceTree = "<group>"; };
-		11793E622B1DC699008FC22C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		11793E652B1F3B07008FC22C /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
-		11793E672B205C2B008FC22C /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
-		11793E692B206D21008FC22C /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		11793E732B22F160008FC22C /* LoginNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNextButton.swift; sourceTree = "<group>"; };
 		11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetEmailVerificationViewController.swift; sourceTree = "<group>"; };
 		11793E772B24B47B008FC22C /* LoginBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBackButton.swift; sourceTree = "<group>"; };
@@ -74,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1107A3EC2B3FF026009B1C51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		115E264B2B1618BE00FCBEE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,10 +125,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1107A3F02B3FF026009B1C51 /* OurryNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				1107A3F12B3FF026009B1C51 /* OurryNetworkTests.swift */,
+			);
+			path = OurryNetworkTests;
+			sourceTree = "<group>";
+		};
+		1107A3FA2B42D7E8009B1C51 /* TestDouble */ = {
+			isa = PBXGroup;
+			children = (
+				1107A3F82B42C9D4009B1C51 /* MockURLProtocol.swift */,
+				1107A4192B42E8BB009B1C51 /* json */,
+			);
+			path = TestDouble;
+			sourceTree = "<group>";
+		};
+		1107A4192B42E8BB009B1C51 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				1107A3FF2B42E6B6009B1C51 /* mock_signup.json */,
+				1107A4052B42E79B009B1C51 /* mock_login.json */,
+				1107A40D2B42E811009B1C51 /* mock_authRequest.json */,
+				1107A40F2B42E835009B1C51 /* mock_authCheck.json */,
+				1107A4152B42E892009B1C51 /* mock_pwReset.json */,
+				1107A4032B42E74A009B1C51 /* mock_m001.json */,
+				1107A4072B42E7B4009B1C51 /* mock_m002.json */,
+				1107A4092B42E7C6009B1C51 /* mock_m003.json */,
+				1107A40B2B42E7CF009B1C51 /* mock_m004.json */,
+				1107A4172B42E8A6009B1C51 /* mock_m005.json */,
+				1107A4112B42E856009B1C51 /* mock_m006.json */,
+				1107A4132B42E868009B1C51 /* mock_m007.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		115E26452B1618BE00FCBEE8 = {
 			isa = PBXGroup;
 			children = (
 				115E26502B1618BE00FCBEE8 /* Ourry */,
+				1107A3FA2B42D7E8009B1C51 /* TestDouble */,
+				1107A3F02B3FF026009B1C51 /* OurryNetworkTests */,
 				115E264F2B1618BE00FCBEE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				115E264E2B1618BE00FCBEE8 /* Ourry.app */,
+				1107A3EF2B3FF026009B1C51 /* OurryNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,10 +247,6 @@
 		11793E642B1F1510008FC22C /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				11793E622B1DC699008FC22C /* SignUpViewController.swift */,
-				11793E652B1F3B07008FC22C /* EmailVerificationView.swift */,
-				11793E672B205C2B008FC22C /* PasswordView.swift */,
-				11793E692B206D21008FC22C /* AdditionalInfoView.swift */,
 				1107A3A22B29DF16009B1C51 /* SignUpEmailViewController.swift */,
 				1107A3A42B2B327A009B1C51 /* SignUpPasswordViewController.swift */,
 				1107A3A62B2B32D4009B1C51 /* SignUpInformationViewController.swift */,
@@ -221,6 +295,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1107A3EE2B3FF026009B1C51 /* OurryNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1107A3F52B3FF026009B1C51 /* Build configuration list for PBXNativeTarget "OurryNetworkTests" */;
+			buildPhases = (
+				1107A3EB2B3FF026009B1C51 /* Sources */,
+				1107A3EC2B3FF026009B1C51 /* Frameworks */,
+				1107A3ED2B3FF026009B1C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1107A3F42B3FF026009B1C51 /* PBXTargetDependency */,
+			);
+			name = OurryNetworkTests;
+			productName = OurryNetworkTests;
+			productReference = 1107A3EF2B3FF026009B1C51 /* OurryNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		115E264D2B1618BE00FCBEE8 /* Ourry */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 115E26622B1618C000FCBEE8 /* Build configuration list for PBXNativeTarget "Ourry" */;
@@ -250,8 +342,12 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					1107A3EE2B3FF026009B1C51 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 115E264D2B1618BE00FCBEE8;
+					};
 					115E264D2B1618BE00FCBEE8 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -275,36 +371,63 @@
 			projectRoot = "";
 			targets = (
 				115E264D2B1618BE00FCBEE8 /* Ourry */,
+				1107A3EE2B3FF026009B1C51 /* OurryNetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1107A3ED2B3FF026009B1C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1107A4012B42E6D5009B1C51 /* mock_signup.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		115E264C2B1618BE00FCBEE8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1107A4122B42E856009B1C51 /* mock_m006.json in Resources */,
+				1107A4162B42E892009B1C51 /* mock_pwReset.json in Resources */,
+				1107A40C2B42E7CF009B1C51 /* mock_m004.json in Resources */,
+				1107A4082B42E7B4009B1C51 /* mock_m002.json in Resources */,
 				115E265E2B1618C000FCBEE8 /* LaunchScreen.storyboard in Resources */,
+				1107A40A2B42E7C6009B1C51 /* mock_m003.json in Resources */,
+				1107A4042B42E74A009B1C51 /* mock_m001.json in Resources */,
+				1107A4022B42E6E0009B1C51 /* mock_signup.json in Resources */,
+				1107A4102B42E835009B1C51 /* mock_authCheck.json in Resources */,
+				1107A40E2B42E811009B1C51 /* mock_authRequest.json in Resources */,
+				1107A4062B42E79B009B1C51 /* mock_login.json in Resources */,
+				1107A4182B42E8A6009B1C51 /* mock_m005.json in Resources */,
 				115E265B2B1618C000FCBEE8 /* Assets.xcassets in Resources */,
+				1107A4142B42E868009B1C51 /* mock_m007.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1107A3EB2B3FF026009B1C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1107A3F22B3FF026009B1C51 /* OurryNetworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		115E264A2B1618BE00FCBEE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
 				11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */,
-				11793E682B205C2B008FC22C /* PasswordView.swift in Sources */,
+				1107A3F92B42C9D4009B1C51 /* MockURLProtocol.swift in Sources */,
 				11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */,
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
 				11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */,
-				11793E662B1F3B07008FC22C /* EmailVerificationView.swift in Sources */,
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
-				11793E6A2B206D21008FC22C /* AdditionalInfoView.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
 				11793E582B188370008FC22C /* AuthService.swift in Sources */,
 				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
@@ -313,7 +436,6 @@
 				1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */,
 				1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */,
 				1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */,
-				11793E632B1DC699008FC22C /* SignUpViewController.swift in Sources */,
 				11793E612B188610008FC22C /* PlaneTextField.swift in Sources */,
 				11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
@@ -326,6 +448,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1107A3F42B3FF026009B1C51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 115E264D2B1618BE00FCBEE8 /* Ourry */;
+			targetProxy = 1107A3F32B3FF026009B1C51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		115E265C2B1618C000FCBEE8 /* LaunchScreen.storyboard */ = {
@@ -340,6 +470,63 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1107A3F62B3FF026009B1C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9FDS8R22C5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seojang22.OurryNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ourry.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ourry";
+			};
+			name = Debug;
+		};
+		1107A3F72B3FF026009B1C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9FDS8R22C5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seojang22.OurryNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ourry.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ourry";
+			};
+			name = Release;
+		};
 		115E26602B1618C000FCBEE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -525,6 +712,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1107A3F52B3FF026009B1C51 /* Build configuration list for PBXNativeTarget "OurryNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1107A3F62B3FF026009B1C51 /* Debug */,
+				1107A3F72B3FF026009B1C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		115E26492B1618BE00FCBEE8 /* Build configuration list for PBXProject "Ourry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
