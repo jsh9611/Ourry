@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
-
+    
     // MARK: - Properties
     // tltle view
     private let mainTitleView = MainTitleView()
@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
     // main table view
     private var questions: [String] = ["가나다라마", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차"]
     private lazy var mainTableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.rowHeight = 112
         tableView.delegate = self
@@ -42,6 +42,14 @@ class MainViewController: UIViewController {
         tableView.register(QuestionTableCell.self, forCellReuseIdentifier: QuestionTableCell.reuseIdentifier)
         
         return tableView
+    }()
+    
+    // floating button
+    private lazy var addQuestionButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "question_request_button.pdf"), for: .normal)
+        button.addTarget(self, action: #selector(addQuestionButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     // MARK: - LifeCycle
@@ -52,16 +60,7 @@ class MainViewController: UIViewController {
         setupMainTitleView()
         setupMainTableView()
         setupCategoryUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        setupAddQuestionButton()
     }
     
     // MARK: - Helpers
@@ -106,12 +105,29 @@ class MainViewController: UIViewController {
         }
     }
     
+    func setupAddQuestionButton() {
+        view.addSubview(addQuestionButton)
+        
+        addQuestionButton.snp.makeConstraints {
+            $0.bottom.equalTo(view).offset(-42)
+            $0.trailing.equalTo(view).offset(-16)
+            $0.width.height.equalTo(52)
+        }
+    }
+    
     // MARK: - Actions
+    @objc func addQuestionButtonTapped() {
+        let addQuestionViewController = AddQuestionViewController()
+        let navigationController = UINavigationController(rootViewController: addQuestionViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     func reloadDataForCurrentButton() {
         //TODO: - 현재 버튼에 맞게 서버에 데이터 요청 및 갱신
-//        dataToShow = [
-//            "Item \(currentButtonTag)"
-//        ]
+        //        dataToShow = [
+        //            "Item \(currentButtonTag)"
+        //        ]
         
         print("reload main table view")
         mainTableView.reloadData()
@@ -166,9 +182,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             comment: 456,
             date: Date(timeIntervalSinceNow: -72000)
         )
-
+        
         return cell
-
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
