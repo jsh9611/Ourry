@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("비회원으로 로그인", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(nonMemberLoginButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -183,9 +183,17 @@ class LoginViewController: UIViewController {
     
     
     //MARK: - functions
-    // 창닫기/비회원 버튼 로직
+    // 창닫기 버튼 로직
     @objc func dismissButtonTapped() {
         dismiss(animated: true)
+    }
+    
+    // 비회원 버튼 로직
+    @objc func nonMemberLoginButtonTapped() {
+//        dismiss(animated: true)
+        print("로그아웃 하기")
+        
+        
     }
 
     // 로그인 버튼 로직
@@ -240,29 +248,17 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelDelegate {
     
-    func loginDidSucceed(jwtToken: String) {
+    func loginDidSucceed(jwt: String) {
         // 로그인 성공
-        print("Login successful. JWT Token: \(jwtToken)")
-
+        print("Login successful")
     }
     
-    func loginDidFail(error: AuthError) {
-        switch error {
-        case .networkError(let networkError):
-            // 네트워크 오류 처리
-            print("Network error: \(networkError.localizedDescription)")
-            
-        case .apiError(let code, let message):
-            // API 에러 처리
-            print("API error - Code: \(code), Message: \(message)")
-            
-        case .parsingError:
-            // JSON 파싱 오류 처리
-            print("JSON parsing error")
-
-        }
+    func loginDidFail(message: String) {
+        let alert = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
-    
 }
 
 //MARK: - 디버깅
