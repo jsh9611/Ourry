@@ -10,6 +10,8 @@ import SnapKit
 
 class SignUpPasswordViewController: UIViewController {
     
+    var email: String?
+    
     private let passwordTitle: UILabel = {
         let label = UILabel()
         label.text = "새 비밀번호"
@@ -123,10 +125,6 @@ class SignUpPasswordViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
     }
-    
-//    @objc func doneButtonAction (){
-//        self.view.endEditing(true)
-//    }
 
     //MARK: - Functions
     private func setupUI() {
@@ -292,6 +290,10 @@ class SignUpPasswordViewController: UIViewController {
     
     @objc private func goNextPage() {
         let signUpInformationViewController = SignUpInformationViewController()
+        guard let email = email, let password = passwordTextField.text else { return }
+        
+        signUpInformationViewController.email = email
+        signUpInformationViewController.password = password
         navigationController?.pushViewController(signUpInformationViewController, animated:true)
     }
     

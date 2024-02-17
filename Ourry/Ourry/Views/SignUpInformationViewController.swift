@@ -10,7 +10,17 @@ import SnapKit
 
 class SignUpInformationViewController: UIViewController {
     
-    private let passwordTitle: UILabel = {
+    var email: String?
+    var password: String?
+    
+//    private let createAccountViewModel = CreateAccountViewModel()
+    
+    private let createAccountViewModel: CreateAccountViewModel = {
+        let createAccountManager = CreateAccountManager()
+        return CreateAccountViewModel(createAccountManager: createAccountManager)
+    }()
+    
+    private let nicknameTitle: UILabel = {
         let label = UILabel()
         label.text = "닉네임"
         label.textColor = .black
@@ -19,7 +29,7 @@ class SignUpInformationViewController: UIViewController {
         return label
     }()
     
-    private let passwordCheckTitle: UILabel = {
+    private let phoneNumberTitle: UILabel = {
         let label = UILabel()
         label.text = "휴대폰 번호"
         label.textColor = .black
@@ -28,60 +38,36 @@ class SignUpInformationViewController: UIViewController {
         return label
     }()
     
-    private lazy var passwordTextField: PlaneTextField = {
+    private lazy var nicknameTextField: PlaneTextField = {
         let textField = PlaneTextField(placeholder: "홍길동")
-        textField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
-        textField.isSecureTextEntry = true
+        textField.addTarget(self, action: #selector(nicknameTextFieldDidChange), for: .editingChanged)
         return textField
     }()
     
-    private lazy var passwordConfirmTextField: PlaneTextField = {
+    private lazy var phoneNumberTextField: PlaneTextField = {
         let textField = PlaneTextField(placeholder: "01012345678")
-        textField.addTarget(self, action: #selector(passwordConfirmTextFieldDidChange), for: .editingChanged)
-        textField.isSecureTextEntry = true
+        textField.addTarget(self, action: #selector(phoneNumberTextFieldDidChange), for: .editingChanged)
         return textField
     }()
     
-    private lazy var passwordErrorLabel: UILabel = {
+    private lazy var nickNameErrorLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
-        label.text = "숫자와 대소문자, 특수문자를 포함해 8자리에서 16자리를 입력해야 합니다."
+        label.text = "닉네임을 다시 확인해주세요"
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.textColor = .clear
         return label
     }()
     
-    private lazy var passwordConfirmErrorLabel: UILabel = {
+    private lazy var phoneNumberErrorLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
         label.numberOfLines = 0
-        label.text = "입력한 비밀번호와 일치하지 않습니다. 다시 확인해주세요."
+        label.text = "전화번호를 다시 확인해주세요."
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.textColor = .clear
         return label
-    }()
-    
-    private lazy var passwordVisibleButton: UIButton = {
-        let button = UIButton(type: .system)
-        let buttonImage = UIImage(systemName: "eye")
-        button.tag = 1
-        button.setImage(buttonImage, for: .normal)
-        button.tintColor = .systemGray
-        button.addTarget(self, action: #selector(showPassword), for: .touchDown)
-        button.addTarget(self, action: #selector(hidePassword), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var passwordConfirmVisibleButton: UIButton = {
-        let button = UIButton(type: .system)
-        let buttonImage = UIImage(systemName: "eye")
-        button.tag = 2
-        button.setImage(buttonImage, for: .normal)
-        button.tintColor = .systemGray
-        button.addTarget(self, action: #selector(showPassword), for: .touchDown)
-        button.addTarget(self, action: #selector(hidePassword), for: .touchUpInside)
-        return button
     }()
     
     private lazy var nextButton: LoginNextButton = {
@@ -108,7 +94,7 @@ class SignUpInformationViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -124,66 +110,46 @@ class SignUpInformationViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-//    @objc func doneButtonAction (){
-//        self.view.endEditing(true)
-//    }
-
     //MARK: - Functions
     private func setupUI() {
         view.backgroundColor = .white
         
-        // 새 비밀번호
-        view.addSubview(passwordTitle)
-        view.addSubview(passwordTextField)
-        view.addSubview(passwordErrorLabel)
-        passwordTitle.snp.makeConstraints { make in
+        // 닉네임 입력
+        view.addSubview(nicknameTitle)
+        view.addSubview(nicknameTextField)
+        view.addSubview(nickNameErrorLabel)
+        nicknameTitle.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordTitle.snp.bottom).offset(6)
+        nicknameTextField.snp.makeConstraints { make in
+            make.top.equalTo(nicknameTitle.snp.bottom).offset(6)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        passwordErrorLabel.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(6)
+        nickNameErrorLabel.snp.makeConstraints { make in
+            make.top.equalTo(nicknameTextField.snp.bottom).offset(6)
             make.leading.trailing.equalToSuperview().inset(16)
-        }
-
-        // 비밀번호 visible 토글 버튼
-        view.addSubview(passwordVisibleButton)
-        passwordVisibleButton.snp.makeConstraints {
-            $0.centerY.equalTo(passwordTextField)
-            $0.trailing.equalTo(passwordTextField).inset(8)
-            $0.width.height.equalTo(20)
         }
         
         // 새 비밀번호 확인
-        view.addSubview(passwordCheckTitle)
-        view.addSubview(passwordConfirmTextField)
-        view.addSubview(passwordConfirmErrorLabel)
-        passwordCheckTitle.snp.makeConstraints{ make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(48)
+        view.addSubview(phoneNumberTitle)
+        view.addSubview(phoneNumberTextField)
+        view.addSubview(phoneNumberErrorLabel)
+        phoneNumberTitle.snp.makeConstraints{ make in
+            make.top.equalTo(nicknameTextField.snp.bottom).offset(48)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        passwordConfirmTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordCheckTitle.snp.bottom).offset(6)
+        phoneNumberTextField.snp.makeConstraints { make in
+            make.top.equalTo(phoneNumberTitle.snp.bottom).offset(6)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        passwordConfirmErrorLabel.snp.makeConstraints { make in
-            make.top.equalTo(passwordConfirmTextField.snp.bottom).offset(6)
+        phoneNumberErrorLabel.snp.makeConstraints { make in
+            make.top.equalTo(phoneNumberTextField.snp.bottom).offset(6)
             make.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        // 비밀번호 확인 visible 토글 버튼
-        view.addSubview(passwordConfirmVisibleButton)
-        passwordConfirmVisibleButton.snp.makeConstraints {
-            $0.centerY.equalTo(passwordConfirmTextField)
-            $0.trailing.equalTo(passwordConfirmTextField).inset(8)
-            $0.width.height.equalTo(20)
         }
         
         // 화면전환 버튼
@@ -214,17 +180,17 @@ class SignUpInformationViewController: UIViewController {
     }
     
     // 키보드가 올라올 때 레이아웃 조정
-        @objc func keyboardWillShow(_ notification: Notification) {
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let keyboardHeight = keyboardSize.height
-                pushAndPop.snp.updateConstraints { make in
-                    make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-keyboardHeight + 20)
-                }
-                UIView.animate(withDuration: 0.3) {
-                    self.view.layoutIfNeeded()
-                }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            pushAndPop.snp.updateConstraints { make in
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-keyboardHeight + 20)
+            }
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
             }
         }
+    }
     
     // 키보드가 내려갈 때 레이아웃 조정
     @objc func keyboardWillHide(_ notification: Notification) {
@@ -237,63 +203,81 @@ class SignUpInformationViewController: UIViewController {
         }
     }
     
-    // 키보드를 보이게 할 때 사용
-    @objc private func showPassword(_ sender: UIButton) {
-        switch sender.tag {
-        case 1:
-            passwordTextField.isSecureTextEntry = false
-        default:
-            passwordConfirmTextField.isSecureTextEntry = false
-        }
-    }
-
-    // 키보드를 안보이게 할 때 사용
-    @objc private func hidePassword(_ sender: UIButton) {
-        switch sender.tag {
-        case 1:
-            passwordTextField.isSecureTextEntry = true
-        default:
-            passwordConfirmTextField.isSecureTextEntry = true
-        }
-    }
-    
     // 유효한 비밀번호인지 검사
     func isValidPassword(pw: String?) -> Bool {
         let password = pw ?? ""
         return (password.count >= 8) && (password.count <= 16)
     }
     
-    @objc private func passwordTextFieldDidChange() {
-        if isValidPassword(pw: passwordTextField.text) {
-            passwordErrorLabel.textColor = .clear
-            nextButton.isEnable = isSamePassword(pw1: passwordTextField.text,
-                                                 pw2: passwordConfirmTextField.text) ? true : false
-        } else {
-            passwordErrorLabel.textColor = .red
-            nextButton.isEnable = false
-        }
+    // 올바른 닉네임인지 체크
+    func isCorrectNickname(nickname: String) -> Bool {
+        nickname.count >= 2
     }
     
-    // 동일한 비밀번호를 입력했는지 검사
-    func isSamePassword(pw1: String?, pw2: String?) -> Bool {
-        return (pw1 ?? "") == (pw2 ?? "")
+    
+    // 올바른 전화번호인지 체크
+    func isCorrectPhoneNumber(phone: String) -> Bool {
+        !phone.isEmpty
     }
     
-    @objc private func passwordConfirmTextFieldDidChange() {
-        if isSamePassword(pw1: passwordTextField.text,
-                           pw2: passwordConfirmTextField.text) {
-            passwordConfirmErrorLabel.textColor = .clear
-            nextButton.isEnable = isValidPassword(pw: passwordTextField.text) ? true : false
-        } else {
-            passwordConfirmErrorLabel.textColor = .red
+    // 닉네임 텍스트필드가 변경될 때
+    @objc private func nicknameTextFieldDidChange() {
+        guard let nickname = nicknameTextField.text, let phone = phoneNumberTextField.text else {
             nextButton.isEnable = false
+            return
         }
+        
+        nextButton.isEnable = isCorrectNickname(nickname: nickname) && isCorrectPhoneNumber(phone: phone)
+    }
+    
+    // 휴대폰 번호 텍스트필드가 변경될 때
+    @objc private func phoneNumberTextFieldDidChange() {
+        guard let nickname = nicknameTextField.text, let phone = phoneNumberTextField.text else {
+            nextButton.isEnable = false
+            return
+        }
+        
+        nextButton.isEnable = isCorrectNickname(nickname: nickname) && isCorrectPhoneNumber(phone: phone)
     }
     
     @objc private func requestSignUp() {
-        //TODO: 비밀번호 변경 요청
-        navigationController?.popToRootViewController(animated: true)
-        print("비밀번호 변경 완료")
+        // 회원가입 완료하기 버튼
+        guard let email = email,
+              let password = password,
+              let nickname = nicknameTextField.text,
+              let phone = phoneNumberTextField.text else { return }
+        
+        createAccountViewModel.registration(email: email, password: password, nickname: nickname, phone: phone) { result in
+            switch result {
+            case .success:
+                let alert = UIAlertController(title: "회원가입 완료", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+                self.present(alert, animated: true, completion: nil)
+                
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    print("API 에러 - 코드: \(code), 메시지: \(message)")
+                    errorMessage = "API 에러 - 코드: \(code), 메시지: \(message)"
+                    
+                case .networkError(let underlyingError):
+                    print("네트워크 에러: \(underlyingError)")
+                    errorMessage = "네트워크 에러: \(underlyingError)"
+                case .parsingError:
+                    print("데이터 파싱 에러")
+                    errorMessage = "데이터 파싱 에러"
+                case .invalidResponse:
+                    print("유효하지 않은 응답")
+                    errorMessage = "유효하지 않은 응답"
+                }
+                
+                let alert = UIAlertController(title: "회원가입 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            }
+        }
     }
     
     @objc private func goBackPage() {
