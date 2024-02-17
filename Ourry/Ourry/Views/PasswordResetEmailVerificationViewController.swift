@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class PasswordResetEmailVerificationViewController: UIViewController {
+    private let emailVerificationViewModel = EmailVerificationViewModel()
     
     private let emailTitle: UILabel = {
         let title = UILabel()
@@ -99,8 +100,7 @@ class PasswordResetEmailVerificationViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         setupUI()
         
-        // 제거해야함
-        nextButton.isEnable = true
+        nextButton.isEnable = false
     }
 
     private func setupUI() {
@@ -167,7 +167,6 @@ class PasswordResetEmailVerificationViewController: UIViewController {
 
         // 이메일 인증요청 후에 등장
         hideAuthField()
-//        makeDoneButton()
         
         // 키보드 이벤트 감지
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -180,13 +179,8 @@ class PasswordResetEmailVerificationViewController: UIViewController {
                 let keyboardHeight = keyboardSize.height
                 pushAndPop.snp.updateConstraints { make in
                     make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-keyboardHeight + 20)
-//                    make.centerY.equalToSuperview().multipliedBy(1.5).offset(-keyboardHeight)
-//                    make.top.equalTo(authInputTextField.snp.bottom).offset(keyboardHeight + 20)
                 }
-//                nextButton.snp.updateConstraints { make in
-//                    make.centerY.equalToSuperview().multipliedBy(1.5).offset(-keyboardHeight)
-////                    make.top.equalTo(authInputTextField.snp.bottom).offset(keyboardHeight + 20)
-//                }
+                
                 UIView.animate(withDuration: 0.3) {
                     self.view.layoutIfNeeded()
                 }
@@ -196,9 +190,7 @@ class PasswordResetEmailVerificationViewController: UIViewController {
         // 키보드가 내려갈 때 레이아웃 조정
         @objc func keyboardWillHide(_ notification: Notification) {
             pushAndPop.snp.updateConstraints { make in
-//                make.top.equalTo(authInputTextField.snp.bottom).offset(20)
                 make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-//                make.centerY.equalToSuperview().multipliedBy(1.5)
             }
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
@@ -215,8 +207,6 @@ class PasswordResetEmailVerificationViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
-//        button.backgroundColor = .white
-//        button
         button.layer.cornerRadius = 10
         button.addTarget(self, action:#selector(doneButtonAction), for:.touchUpInside)
         button.frame = CGRect.init(x: 0, y: 0, width:50, height: 30)
@@ -225,7 +215,6 @@ class PasswordResetEmailVerificationViewController: UIViewController {
         let done = UIBarButtonItem.init(customView: button)
         
         toolBar.items = [space, done]
-//        toolBar.backgroundColor
         emailTextField.inputAccessoryView = toolBar
         authInputTextField.inputAccessoryView = toolBar
     }
@@ -264,21 +253,42 @@ class PasswordResetEmailVerificationViewController: UIViewController {
         }
     }
 
+    // 인증번호 요청 버튼 로직
     @objc private func verificationButtonTapped() {
-        //TODO: 인증 코드 전송 로직 구현
-        startCountdown()
-        showAuthField()
-        verificationButton.setTitle("인증번호 전송됨", for: .normal)
-        verificationButton.isEnabled = false
-        verificationButton.backgroundColor = .gray
+        guard let email = emailTextField.text else { return }
+        
+        emailVerificationViewModel.requestVerificationCode(email: email) { result in
+            switch result {
+            case .success(let message):
+                print(message)
+                self.startCountdown()
+                self.showAuthField()
+                self.verificationButton.setTitle("인증번호 전송됨", for: .normal)
+                self.verificationButton.isEnabled = false
+                self.verificationButton.backgroundColor = .gray
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+
+                case .apiError(let code, let message):
+                    // API 에러 처리
+                    errorMessage = "\(code): \(message)"
+
+                default:
+                    errorMessage = "알 수 없는 에러 발생"
+                }
+                
+                let alert = UIAlertController(title: "변경 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc private func authConfirmButtonTapped() {
-        let alert = UIAlertController(title: "인증이 완료되었습니다.", message: nil, preferredStyle: .alert)
+        guard let email = emailTextField.text, let code = authInputTextField.text else { return }
         
-        let loginAction = UIAlertAction(title: "확인", style: .default) { _ in
-            //TODO: 인증 코드 확인 로직 구현
-            print("인증 코드 확인 로직 구현")
+        let successAction = UIAlertAction(title: "확인", style: .default) { _ in
             self.emailTextField.isUserInteractionEnabled = false
             self.emailTextField.backgroundColor = .systemGray6
             self.emailTextField.textColor = .systemGray
@@ -295,12 +305,43 @@ class PasswordResetEmailVerificationViewController: UIViewController {
             self.authInputTextField.textColor = .systemGray
             
             self.authConfirmButton.isEnabled = false
-            
+            self.nextButton.isEnable = true
         }
         
-        alert.addAction(loginAction)
-        self.doneButtonAction()
-        present(alert, animated: true, completion: nil)
+        emailVerificationViewModel.verifyCode(email: email, code: code) { result in
+            switch result {
+            case .success(let message):
+                print(message)
+                let alert = UIAlertController(title: "인증 완료", message: "인증이 완료되었습니다.", preferredStyle: .alert)
+                alert.addAction(successAction)
+                
+                self.doneButtonAction()
+                self.present(alert, animated: true, completion: nil)
+                
+            // 실패한 경우
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    print("API 에러 - 코드: \(code), 메시지: \(message)")
+                    errorMessage = "API 에러 - 코드: \(code), 메시지: \(message)"
+                    
+                case .networkError(let underlyingError):
+                    print("네트워크 에러: \(underlyingError)")
+                    errorMessage = "네트워크 에러: \(underlyingError)"
+                case .parsingError:
+                    print("데이터 파싱 에러")
+                    errorMessage = "데이터 파싱 에러"
+                case .invalidResponse:
+                    print("유효하지 않은 응답")
+                    errorMessage = "유효하지 않은 응답"
+                }
+                let alert = UIAlertController(title: "인증 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 
     private func startCountdown() {
@@ -327,7 +368,10 @@ class PasswordResetEmailVerificationViewController: UIViewController {
     }
     
     @objc private func goNextPage() {
+        guard let email = emailTextField.text else { return }
+        
         let passwordInputViewController = PasswordResetNewPasswordViewController()
+        passwordInputViewController.email = email
         navigationController?.pushViewController(passwordInputViewController, animated:true)
     }
     

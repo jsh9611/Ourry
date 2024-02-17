@@ -10,6 +10,13 @@ import SnapKit
 
 class PasswordResetNewPasswordViewController: UIViewController {
     
+    var email: String?
+    
+    private let passwordResetViewModel: PasswordResetViewModel = {
+        let passwordResetManager = PasswordResetManager()
+        return PasswordResetViewModel(passwordResetManager: passwordResetManager)
+    }()
+    
     private let passwordTitle: UILabel = {
         let label = UILabel()
         label.text = "새 비밀번호"
@@ -91,7 +98,7 @@ class PasswordResetNewPasswordViewController: UIViewController {
     private lazy var nextButton: LoginNextButton = {
         let button = LoginNextButton()
         button.setTitle("비밀번호 변경하기", for: .normal)
-        button.addTarget(self, action: #selector(goNextPage), for: .touchUpInside)
+        button.addTarget(self, action: #selector(doResetPassword), for: .touchUpInside)
         return button
     }()
     
@@ -289,10 +296,44 @@ class PasswordResetNewPasswordViewController: UIViewController {
         }
     }
     
-    @objc private func goNextPage() {
-        //TODO: 비밀번호 변경 요청
-        navigationController?.popToRootViewController(animated: true)
-        print("비밀번호 변경 완료")
+    @objc private func doResetPassword() {
+        // 비밀번호 확인
+        guard let email = email,
+              let newPassword = passwordTextField.text,
+              let confirmPassword = passwordConfirmTextField.text else {
+            
+            let alert = UIAlertController(title: "입력 오류", message: "비밀번호를 확인해주세요", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // 비밀번호 변경 요청
+        passwordResetViewModel.resetPassword(email: email, newPassword: newPassword, confirmPassword: confirmPassword) { result in
+            switch result {
+                
+            case .success(let message):
+                let alert = UIAlertController(title: "변경 완료", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+                self.present(alert, animated: true, completion: nil)
+                
+            case .failure(let error):
+                let errorMessage: String
+                
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    errorMessage = "\(code): \(message)"
+                default:
+                    errorMessage = "알 수 없는 에러 발생"
+                }
+                
+                let alert = UIAlertController(title: "변경 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc private func goBackPage() {
