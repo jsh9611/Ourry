@@ -52,7 +52,6 @@
 		119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */; };
 		119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */; };
 		119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */; };
-		119177E42B84B76300A3A4F9 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177E32B84B76300A3A4F9 /* MainManager.swift */; };
 		119177E72B84DF9700A3A4F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177E62B84DF9700A3A4F9 /* Endpoint.swift */; };
 		119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178082B90615700A3A4F9 /* QuestionViewController.swift */; };
 		119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178352B9DA58200A3A4F9 /* BarChartView.swift */; };
@@ -64,6 +63,12 @@
 		11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */; };
 		11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */; };
 		11C807D52BA57DE400978CBA /* Ourry-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11C807D42BA57DE400978CBA /* Ourry-Info.plist */; };
+		11C807D82BA58F8200978CBA /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807D72BA58F8200978CBA /* APIKey.swift */; };
+		11C807DA2BA5927100978CBA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807D92BA5927100978CBA /* MainViewModel.swift */; };
+		11C807DC2BA5961500978CBA /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807DB2BA5961500978CBA /* ErrorResponse.swift */; };
+		11C807DE2BA5972300978CBA /* QuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807DD2BA5972300978CBA /* QuestionInfo.swift */; };
+		11C807E12BA5B04100978CBA /* CommentDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807E02BA5B04100978CBA /* CommentDivider.swift */; };
+		11C807E32BA5B46100978CBA /* QuestionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807E22BA5B46100978CBA /* QuestionDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +128,6 @@
 		119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
-		119177E32B84B76300A3A4F9 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
 		119177E62B84DF9700A3A4F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		119178082B90615700A3A4F9 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		119178352B9DA58200A3A4F9 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
@@ -135,6 +139,12 @@
 		11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		11C807D42BA57DE400978CBA /* Ourry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ourry-Info.plist"; sourceTree = "<group>"; };
+		11C807D72BA58F8200978CBA /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		11C807D92BA5927100978CBA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		11C807DB2BA5961500978CBA /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		11C807DD2BA5972300978CBA /* QuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfo.swift; sourceTree = "<group>"; };
+		11C807E02BA5B04100978CBA /* CommentDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDivider.swift; sourceTree = "<group>"; };
+		11C807E22BA5B46100978CBA /* QuestionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +255,9 @@
 			children = (
 				11793E542B188321008FC22C /* User.swift */,
 				1107A3AA2B2D8985009B1C51 /* Login.swift */,
+				11C807DB2BA5961500978CBA /* ErrorResponse.swift */,
+				11C807DD2BA5972300978CBA /* QuestionInfo.swift */,
+				11C807E22BA5B46100978CBA /* QuestionDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,7 +265,7 @@
 		11793E522B1882FC008FC22C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				119178072B90607900A3A4F9 /* Question */,
+				11C807DF2BA5AF3100978CBA /* AddQuestion */,
 				11B0FCE52B483B7600971F9A /* Main */,
 				11793E702B22EBE3008FC22C /* Components */,
 				11793E6D2B22EB42008FC22C /* Member */,
@@ -267,7 +280,6 @@
 				1107A3A82B2D894C009B1C51 /* LoginManager.swift */,
 				1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */,
 				119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */,
-				119177E32B84B76300A3A4F9 /* MainManager.swift */,
 				1102F9902B563DA0009FA539 /* KeychainHelper.swift */,
 			);
 			path = Managers;
@@ -280,6 +292,7 @@
 				119177D72B7E000500A3A4F9 /* EmailVerificationViewModel.swift */,
 				119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */,
 				119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */,
+				11C807D92BA5927100978CBA /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -328,6 +341,7 @@
 				11793E602B188610008FC22C /* PlaneTextField.swift */,
 				11793E732B22F160008FC22C /* LoginNextButton.swift */,
 				11793E772B24B47B008FC22C /* LoginBackButton.swift */,
+				11C807E02BA5B04100978CBA /* CommentDivider.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -344,12 +358,10 @@
 		11B0FCE52B483B7600971F9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				11B0FCEE2B4BD35F00971F9A /* MainCell */,
 				11B0FCE62B483B8600971F9A /* MainViewController.swift */,
-				11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */,
-				1102F9922B5D49DC009FA539 /* SelectCategoryViewController.swift */,
 				11B0FCE82B492F5600971F9A /* MainTitleView.swift */,
-				11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */,
+				11B0FCEE2B4BD35F00971F9A /* MainCell */,
+				119178072B90607900A3A4F9 /* Question */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 			children = (
 				11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */,
 				11B0FCF92B4FD07700971F9A /* CategoryCell.swift */,
+				11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */,
 			);
 			name = MainCell;
 			sourceTree = "<group>";
@@ -367,9 +380,19 @@
 			isa = PBXGroup;
 			children = (
 				119177E62B84DF9700A3A4F9 /* Endpoint.swift */,
+				11C807D72BA58F8200978CBA /* APIKey.swift */,
 				11C807D42BA57DE400978CBA /* Ourry-Info.plist */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		11C807DF2BA5AF3100978CBA /* AddQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */,
+				1102F9922B5D49DC009FA539 /* SelectCategoryViewController.swift */,
+			);
+			name = AddQuestion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,12 +525,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11C807DC2BA5961500978CBA /* ErrorResponse.swift in Sources */,
 				119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */,
 				11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */,
 				119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */,
 				119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */,
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
+				11C807E32BA5B46100978CBA /* QuestionDetail.swift in Sources */,
 				1102F9932B5D49DC009FA539 /* SelectCategoryViewController.swift in Sources */,
+				11C807E12BA5B04100978CBA /* CommentDivider.swift in Sources */,
 				11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */,
 				11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */,
 				1107A3F92B42C9D4009B1C51 /* MockURLProtocol.swift in Sources */,
@@ -515,8 +541,8 @@
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
 				11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */,
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
-				119177E42B84B76300A3A4F9 /* MainManager.swift in Sources */,
 				11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */,
+				11C807DA2BA5927100978CBA /* MainViewModel.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
 				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
@@ -533,12 +559,14 @@
 				11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
 				11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */,
+				11C807DE2BA5972300978CBA /* QuestionInfo.swift in Sources */,
 				119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */,
 				1107A3A52B2B327A009B1C51 /* SignUpPasswordViewController.swift in Sources */,
 				11B0FCFC2B4FD0D200971F9A /* Date+Extention.swift in Sources */,
 				119177D82B7E000500A3A4F9 /* EmailVerificationViewModel.swift in Sources */,
 				115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */,
 				11793E5B2B1883AB008FC22C /* LoginViewModel.swift in Sources */,
+				11C807D82BA58F8200978CBA /* APIKey.swift in Sources */,
 				11B0FCFA2B4FD07700971F9A /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

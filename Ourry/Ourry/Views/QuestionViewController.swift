@@ -214,19 +214,54 @@ class QuestionViewController: UIViewController {
         chartView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(chartTitleLabel.snp.bottom).offset(8)
-
         }
         
         chartView.setup(with: foodData)
     }
     
     // answer
-    func setAnswerUI() {
+    func loadQuestion(questionId: Int?) {
+        guard let id = questionId, id > 0 else {
+            print(questionId)
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        activityIndicator.startAnimating()
         
+        mainViewModel.requestQuestionDetail(questionId: id) { result in
+            switch result {
+            case .success(let responseData):
+                DispatchQueue.main.async {
+//                    self.questionDeatail = responseData
+                    self.categoryLabel.text = responseData.category
+                    self.titleLabel.text = responseData.title
+                    self.nicknameLabel.text = responseData.nickname
+                    self.creationDateLabel.text = "2022-03-21"
+                    self.descriptionUILabel.text = responseData.content
+//                    self.
+                    
+                    
+                    self.activityIndicator.stopAnimating()
+                }
+                
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    errorMessage = "에러코드 \(code): \(message)"
+                case .networkError(let networkError):
+                    errorMessage = networkError.localizedDescription
+                default:
+                    errorMessage = "알 수 없는 에러가 발생했습니다."
+                }
+                
+                let alert = UIAlertController(title: "인증 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
-    
-    
-    
 }
 
 #if canImport(SwiftUI) && DEBUG
@@ -234,8 +269,6 @@ import SwiftUI
 struct QuestionViewControllerPreviews: PreviewProvider {
     static var previews: some View {
         QuestionViewController().toPreview()
-        
-        
     }
 }
 #endif

@@ -38,7 +38,7 @@ class LoginViewModel {
                 case .networkError(let networkError):
                     errorMessage = networkError.localizedDescription
                 case .apiError(code: let code, message: let message):
-                    errorMessage = message
+                    errorMessage = "에러코드 \(code): \(message)"
                 case .parsingError:
                     errorMessage = "잘못된 서버 응답입니다."
                 case .invalidResponse:

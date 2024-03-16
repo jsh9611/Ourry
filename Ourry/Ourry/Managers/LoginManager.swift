@@ -40,7 +40,7 @@ class LoginManager {
                     } else {
                         // 에러 메세지 확인
                         if let data = response.data,
-                           let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
+                           let authResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                             completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
                         } else {
                             completion(.failure(.parsingError))
@@ -48,7 +48,7 @@ class LoginManager {
                     }
                 case .failure(let error):
                     if let data = response.data,
-                       let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
+                       let authResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                         completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
                     } else {
                         completion(.failure(.networkError(error)))

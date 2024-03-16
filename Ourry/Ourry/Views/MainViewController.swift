@@ -11,6 +11,11 @@ import SnapKit
 class MainViewController: UIViewController {
     
     // MARK: - Properties
+    // view model
+    private let mainViewModel = MainViewModel()
+    
+    private var questionList: [QuestionInfo] = []
+    
     // tltle view
     private let mainTitleView = MainTitleView()
     
@@ -32,7 +37,7 @@ class MainViewController: UIViewController {
     }()
     
     // main table view
-    private var questions: [String] = ["가나다라마", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차"]
+//    private var questions: [String] = ["가나다라마", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차", "가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차"]
     private lazy var mainTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -61,6 +66,8 @@ class MainViewController: UIViewController {
         setupMainTableView()
         setupCategoryUI()
         setupAddQuestionButton()
+        
+        loadData()
     }
     
     // MARK: - Helpers
@@ -116,6 +123,35 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
+    func loadData() {
+        mainViewModel.requestQuestionList() { result in
+            switch result {
+            case .success(let responseData):
+                self.questionList = responseData
+                
+                DispatchQueue.main.async {
+                    self.mainTableView.reloadData()
+                }
+                
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    errorMessage = "에러코드 \(code): \(message)"
+                case .networkError(let networkError):
+                    errorMessage = networkError.localizedDescription
+                default:
+                    errorMessage = "알 수 없는 에러가 발생했습니다."
+                }
+                
+                let alert = UIAlertController(title: "인증 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     @objc func addQuestionButtonTapped() {
         let addQuestionViewController = AddQuestionViewController()
         let navigationController = UINavigationController(rootViewController: addQuestionViewController)
@@ -128,11 +164,20 @@ class MainViewController: UIViewController {
         //        dataToShow = [
         //            "Item \(currentButtonTag)"
         //        ]
-        print(selectedCategoryIndex, categories[selectedCategoryIndex])
+        
+        
+        
+        switch selectedCategoryIndex {
+        case 0:
+            loadData()
+        default:
+            print(selectedCategoryIndex, categories[selectedCategoryIndex])
+            // loadCategoryData \(selectedCategoryIndex)
+        }
         print("reload main table view")
         
         // 토큰이 만료되었을 때 로그인화면으로
-        if "SUCCESS" != "Failure" {
+        if "SUCCESS" == "Failure" {
             KeychainHelper.delete(forAccount: "access_token")
             KeychainHelper.delete(forAccount: "refresh_token")
 
@@ -182,20 +227,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: - 질문 목록 / UITableViewDelegate, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        questions.count
+        questionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTableCell.reuseIdentifier, for: indexPath) as! QuestionTableCell
+        let question = questionList[indexPath.row]
         
         cell.separatorInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
         cell.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        cell.selectionStyle = .none
         
         cell.configure(
-            title: questions[indexPath.row],
-            author: "홍길동",
-            answer: 123,
-            comment: 456,
+            title: question.title,
+            content: question.content,
+            author: question.nickname,
+            answer: question.pollCnt,
+            comment: question.responseCnt,
             date: Date(timeIntervalSinceNow: -72000)
         )
         
@@ -204,8 +252,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedQuestion = questions[indexPath.item]
-        //TODO: - 질문 내용에 대한 상세 페이지를 push로 이동
-        print(selectedQuestion)
+//        let selectedQuestion = questions[indexPath.item]
+        let selectedQuestion = questionList[indexPath.item]
+        
+        //MARK: - 질문 내용에 대한 상세 페이지를 push로 이동
+        let questionViewController = QuestionViewController()
+        //TODO: - selectedQuestion.questionId
+        questionViewController.questionId = 2
+        print(selectedQuestion.title)
+        
+        self.navigationController?.pushViewController(questionViewController, animated: true)
+        mainTableView.deselectRow(at: indexPath, animated: true)
     }
 }

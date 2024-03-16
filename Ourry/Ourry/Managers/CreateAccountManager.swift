@@ -32,7 +32,7 @@ class CreateAccountManager {
                     // 개정 생성 실패
                     // 에러 메세지 확인
                     if let data = response.data,
-                       let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
+                       let authResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                         completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
                     } else {
                         completion(.failure(.networkError(error)))
