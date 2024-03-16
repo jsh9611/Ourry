@@ -16,10 +16,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let tempViewController = TempViewController()
-        let navigationController = UINavigationController(rootViewController: tempViewController)
-        window?.rootViewController = navigationController
+        let temp = TempViewController()
+        let nvc = UINavigationController(rootViewController: temp)
+        window?.rootViewController = nvc
         window?.makeKeyAndVisible()
+//        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
+//        
+//        if !isLaunched {
+//            UserDefaults.standard.set(true, forKey: "isLaunched")
+//            KeychainHelper.delete(forAccount: "access_token")
+//            KeychainHelper.delete(forAccount: "refresh_token")
+//        }
+//
+//        // 로그인한 적이 없는 경우(토큰 미발급)
+//        guard KeychainHelper.read(forAccount: "access_token") != nil,
+//              KeychainHelper.read(forAccount: "refresh_token") != nil else {
+//            
+//            let loginViewController = LoginViewController()
+//            let navigationController = UINavigationController(rootViewController: loginViewController)
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//            return
+//        }
+//        
+//        // 로그인 상태인 경우
+//        let mainViewController = MainViewController()
+//        let navigationController = UINavigationController(rootViewController: mainViewController)
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

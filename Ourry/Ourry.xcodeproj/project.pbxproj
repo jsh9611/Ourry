@@ -52,6 +52,10 @@
 		119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */; };
 		119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */; };
 		119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */; };
+		119177E42B84B76300A3A4F9 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177E32B84B76300A3A4F9 /* MainManager.swift */; };
+		119177E72B84DF9700A3A4F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177E62B84DF9700A3A4F9 /* Endpoint.swift */; };
+		119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178082B90615700A3A4F9 /* QuestionViewController.swift */; };
+		119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178352B9DA58200A3A4F9 /* BarChartView.swift */; };
 		11B0FCE72B483B8600971F9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE62B483B8600971F9A /* MainViewController.swift */; };
 		11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE82B492F5600971F9A /* MainTitleView.swift */; };
 		11B0FCF82B4FD04D00971F9A /* QuestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */; };
@@ -59,6 +63,7 @@
 		11B0FCFC2B4FD0D200971F9A /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFB2B4FD0D200971F9A /* Date+Extention.swift */; };
 		11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */; };
 		11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */; };
+		11C807D52BA57DE400978CBA /* Ourry-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11C807D42BA57DE400978CBA /* Ourry-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +123,10 @@
 		119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
+		119177E32B84B76300A3A4F9 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
+		119177E62B84DF9700A3A4F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		119178082B90615700A3A4F9 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		119178352B9DA58200A3A4F9 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		11B0FCE62B483B8600971F9A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11B0FCE82B492F5600971F9A /* MainTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleView.swift; sourceTree = "<group>"; };
 		11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableCell.swift; sourceTree = "<group>"; };
@@ -125,6 +134,7 @@
 		11B0FCFB2B4FD0D200971F9A /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		11C807D42BA57DE400978CBA /* Ourry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ourry-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +221,7 @@
 				11793E522B1882FC008FC22C /* Views */,
 				11793E592B188394008FC22C /* ViewModels */,
 				115E265A2B1618C000FCBEE8 /* Assets.xcassets */,
+				11C807D62BA57E2500978CBA /* Config */,
 				115E265C2B1618C000FCBEE8 /* LaunchScreen.storyboard */,
 				115E265F2B1618C000FCBEE8 /* Info.plist */,
 			);
@@ -241,9 +252,10 @@
 		11793E522B1882FC008FC22C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				119178072B90607900A3A4F9 /* Question */,
 				11B0FCE52B483B7600971F9A /* Main */,
 				11793E702B22EBE3008FC22C /* Components */,
-				11793E6D2B22EB42008FC22C /* Users */,
+				11793E6D2B22EB42008FC22C /* Member */,
 				11793E4F2B1731A4008FC22C /* TempViewController.swift */,
 			);
 			path = Views;
@@ -255,6 +267,7 @@
 				1107A3A82B2D894C009B1C51 /* LoginManager.swift */,
 				1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */,
 				119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */,
+				119177E32B84B76300A3A4F9 /* MainManager.swift */,
 				1102F9902B563DA0009FA539 /* KeychainHelper.swift */,
 			);
 			path = Managers;
@@ -281,14 +294,14 @@
 			name = SignUp;
 			sourceTree = "<group>";
 		};
-		11793E6D2B22EB42008FC22C /* Users */ = {
+		11793E6D2B22EB42008FC22C /* Member */ = {
 			isa = PBXGroup;
 			children = (
 				11793E6E2B22EBA8008FC22C /* Login */,
 				11793E642B1F1510008FC22C /* SignUp */,
 				11793E6F2B22EBB1008FC22C /* PasswordReset */,
 			);
-			name = Users;
+			name = Member;
 			sourceTree = "<group>";
 		};
 		11793E6E2B22EBA8008FC22C /* Login */ = {
@@ -319,6 +332,15 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		119178072B90607900A3A4F9 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				119178082B90615700A3A4F9 /* QuestionViewController.swift */,
+				119178352B9DA58200A3A4F9 /* BarChartView.swift */,
+			);
+			name = Question;
+			sourceTree = "<group>";
+		};
 		11B0FCE52B483B7600971F9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +361,15 @@
 				11B0FCF92B4FD07700971F9A /* CategoryCell.swift */,
 			);
 			name = MainCell;
+			sourceTree = "<group>";
+		};
+		11C807D62BA57E2500978CBA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				119177E62B84DF9700A3A4F9 /* Endpoint.swift */,
+				11C807D42BA57DE400978CBA /* Ourry-Info.plist */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +481,7 @@
 				1107A40E2B42E811009B1C51 /* mock_authRequest.json in Resources */,
 				1107A4062B42E79B009B1C51 /* mock_login.json in Resources */,
 				1107A4182B42E8A6009B1C51 /* mock_m005.json in Resources */,
+				11C807D52BA57DE400978CBA /* Ourry-Info.plist in Resources */,
 				115E265B2B1618C000FCBEE8 /* Assets.xcassets in Resources */,
 				1107A4142B42E868009B1C51 /* mock_m007.json in Resources */,
 			);
@@ -470,7 +502,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */,
 				11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */,
+				119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */,
 				119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */,
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
 				1102F9932B5D49DC009FA539 /* SelectCategoryViewController.swift in Sources */,
@@ -481,12 +515,14 @@
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
 				11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */,
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
+				119177E42B84B76300A3A4F9 /* MainManager.swift in Sources */,
 				11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
 				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
 				1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */,
 				11B0FCF82B4FD04D00971F9A /* QuestionTableCell.swift in Sources */,
+				119177E72B84DF9700A3A4F9 /* Endpoint.swift in Sources */,
 				1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */,
 				1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */,
 				1102F9912B563DA0009FA539 /* KeychainHelper.swift in Sources */,

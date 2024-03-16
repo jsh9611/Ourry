@@ -16,12 +16,12 @@ class CreateAccountManager {
     }
     
     func registration(email: String, password: String, nickname: String, phone: String, completion: @escaping (Result<String, AuthError>) -> Void) {
-        let urlString = "http://3.25.115.208:8080/member/createAccount"
+        let url = Endpoint.signup.url
         let parameters: [String: Any] = ["email": email, "password": password, "nickname": nickname, "phone": phone]
         let headers: HTTPHeaders =  ["Content-Type": "application/json"]
         
         session
-            .request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseDecodable(of: Empty.self, emptyResponseCodes: [200]) { response in
                 switch response.result {

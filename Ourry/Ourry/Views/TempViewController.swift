@@ -27,6 +27,18 @@ class TempViewController: UIViewController {
         myFirstView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         myFirstView.layer.cornerRadius = 30
         
+        let testButton = UIButton()
+        testButton.setTitle("테스트", for: .normal)
+        testButton.addTarget(self, action: #selector(testButtonAction), for: .touchUpInside)
+        testButton.translatesAutoresizingMaskIntoConstraints = false
+        testButton.backgroundColor = .green
+        self.view.addSubview(testButton)
+        
+        testButton.topAnchor.constraint(equalTo: myFirstView.bottomAnchor, constant: 10).isActive = true
+        
+        testButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        testButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        testButton.layer.cornerRadius = 30
     }
     
     @objc func navigateToNewViewController() {
@@ -36,7 +48,12 @@ class TempViewController: UIViewController {
         present(navigationController, animated: true, completion: nil)
     }
     
-    // Alert를 통해 로그인 화면으로 이동
+    @objc func testButtonAction() {
+        let questionViewController = QuestionViewController() 
+        navigationController?.pushViewController(questionViewController, animated:true)
+    }
+    
+    // Alert를 통해 로그인 화면으로 이동 r
     @objc func requestLoginAlert() {
         let alert = UIAlertController(title: "로그인이 필요합니다.", message: "투표를 하기 위해선 로그인를 해주세요.", preferredStyle: .alert)
         
