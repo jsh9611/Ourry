@@ -18,49 +18,42 @@ class LoginManager {
     
     //MARK: - 로그인하기
     func login(email: String, password: String, completion: @escaping (Result<String, AuthError>) -> Void) {
-        let urlString = "http://3.25.115.208:8080/member/memberLogin"
+        let url = Endpoint.login.url
         let parameters: [String: Any] = ["email": email, "password": password]
         
-        session.request(urlString,
-                        method: .post,
-                        parameters: parameters,
-                        encoding: JSONEncoding.default,
-                        headers: ["Content-Type": "application/json"]
-        )
-        .validate(statusCode: 200..<300)
-        .responseDecodable(of: Empty.self, emptyResponseCodes: [200]) { response in
-            switch response.result {
-            case .success:
-                // 로그인 성공
-                if let httpResponse = response.response,
-                   let authorization = httpResponse.headers["Authorization"],
-                   let refresh = httpResponse.headers["Refresh"] {
-                    
-                    //키체인에 JWT 토큰 저장 로직을 추가
-                    KeychainHelper.delete(forAccount: "access_token")
-                    KeychainHelper.delete(forAccount: "refresh_token")
-                    
-                    KeychainHelper.create(token: authorization, forAccount: "access_token")
-                    KeychainHelper.create(token: refresh, forAccount: "refresh_token")
-                    
-                    completion(.success(authorization))
-                } else {
-                    // 에러 메세지 확인
+        session
+            .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: ["Content-Type": "application/json"])
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: Empty.self, emptyResponseCodes: [200]) { response in
+                switch response.result {
+                case .success:
+                    // 로그인 성공
+                    if let httpResponse = response.response,
+                       let authorization = httpResponse.headers["Authorization"],
+                       let refresh = httpResponse.headers["Refresh"] {
+                        
+                        //키체인에 JWT 토큰 저장 로직을 추가
+                        KeychainHelper.create(token: authorization, forAccount: "access_token")
+                        KeychainHelper.create(token: refresh, forAccount: "refresh_token")
+                        
+                        completion(.success(authorization))
+                    } else {
+                        // 에러 메세지 확인
+                        if let data = response.data,
+                           let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
+                            completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
+                        } else {
+                            completion(.failure(.parsingError))
+                        }
+                    }
+                case .failure(let error):
                     if let data = response.data,
                        let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
                         completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
                     } else {
-                        completion(.failure(.parsingError))
+                        completion(.failure(.networkError(error)))
                     }
                 }
-            case .failure(let error):
-                if let data = response.data,
-                   let authResponse = try? JSONDecoder().decode(AuthenticationResponse.self, from: data) {
-                    completion(.failure(.apiError(code: authResponse.code, message: authResponse.message)))
-                } else {
-                    completion(.failure(.networkError(error)))
-                }
             }
-        }
     }
 }

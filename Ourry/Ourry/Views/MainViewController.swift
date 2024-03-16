@@ -128,9 +128,25 @@ class MainViewController: UIViewController {
         //        dataToShow = [
         //            "Item \(currentButtonTag)"
         //        ]
-        
+        print(selectedCategoryIndex, categories[selectedCategoryIndex])
         print("reload main table view")
-        mainTableView.reloadData()
+        
+        // 토큰이 만료되었을 때 로그인화면으로
+        if "SUCCESS" != "Failure" {
+            KeychainHelper.delete(forAccount: "access_token")
+            KeychainHelper.delete(forAccount: "refresh_token")
+
+            let alert = UIAlertController(title: "로그인 만료", message: "로그인이 만료되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+                let loginViewController = LoginViewController()
+                self.navigationController?.setViewControllers([loginViewController], animated: true)
+            })
+            
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            mainTableView.reloadData()
+        }
     }
 }
 

@@ -16,12 +16,12 @@ class PasswordResetManager {
     }
     
     func resetPassword(email: String, newPassword: String, confirmPassword: String, completion: @escaping (Result<String, AuthError>) -> Void) {
-        let urlString = "http://3.25.115.208:8080/member/passwordReset"
+        let url = Endpoint.passwordReset.url
         let parameters: [String: Any] = ["email": email, "newPassword": newPassword, "confirmPassword": confirmPassword]
         let headers: HTTPHeaders =  ["Content-Type": "application/json"]
         
         session
-            .request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseDecodable(of: Empty.self, emptyResponseCodes: [200]) { response in
                 switch response.result {

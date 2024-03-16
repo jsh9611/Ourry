@@ -214,8 +214,11 @@ class LoginViewController: UIViewController {
         }
         passwordErrorLabel.textColor = .clear
 
-        // 뷰 모델을 통해 로그인 요청 보내기
-        loginViewModel.login(email: email, password: password)
+        // 로그인 요청 보내기
+//        loginViewModel.login(email: email, password: password)
+        
+        let mainViewController = MainViewController()
+        navigationController?.setViewControllers([mainViewController], animated: true)
         
         //TODO: 로그인 로직
         // dismiss(animated: true)
