@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct LoginResponse: Codable {
-    let jwt: String?
-    let code: String?
-    let message: String?
-}
-
 enum AuthError: Error, Equatable {
     static func == (lhs: AuthError, rhs: AuthError) -> Bool {
         switch (lhs, rhs) {
@@ -28,6 +22,7 @@ enum AuthError: Error, Equatable {
     case networkError(Error)
     case apiError(code: String, message: String)
     case parsingError
+    case invalidResponse
 }
 
 enum LoginResult {

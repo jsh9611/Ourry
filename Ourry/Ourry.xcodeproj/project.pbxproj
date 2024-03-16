@@ -15,7 +15,6 @@
 		1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3A82B2D894C009B1C51 /* LoginManager.swift */; };
 		1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3AA2B2D8985009B1C51 /* Login.swift */; };
 		1107A3B12B301024009B1C51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1107A3B02B301024009B1C51 /* Alamofire */; };
-		1107A3E82B3AAA98009B1C51 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */; };
 		1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */; };
 		1107A3F22B3FF026009B1C51 /* OurryNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3F12B3FF026009B1C51 /* OurryNetworkTests.swift */; };
 		1107A3F92B42C9D4009B1C51 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107A3F82B42C9D4009B1C51 /* MockURLProtocol.swift */; };
@@ -41,7 +40,6 @@
 		115E266D2B161EA300FCBEE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 115E266C2B161EA300FCBEE8 /* SnapKit */; };
 		11793E502B1731A4008FC22C /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E4F2B1731A4008FC22C /* TempViewController.swift */; };
 		11793E552B188321008FC22C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E542B188321008FC22C /* User.swift */; };
-		11793E582B188370008FC22C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E572B188370008FC22C /* AuthService.swift */; };
 		11793E5B2B1883AB008FC22C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5A2B1883AB008FC22C /* LoginViewModel.swift */; };
 		11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5C2B188459008FC22C /* UIViewController+Extention.swift */; };
 		11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */; };
@@ -50,6 +48,10 @@
 		11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */; };
 		11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E772B24B47B008FC22C /* LoginBackButton.swift */; };
 		11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */; };
+		119177D82B7E000500A3A4F9 /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177D72B7E000500A3A4F9 /* EmailVerificationViewModel.swift */; };
+		119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */; };
+		119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */; };
+		119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */; };
 		11B0FCE72B483B8600971F9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE62B483B8600971F9A /* MainViewController.swift */; };
 		11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE82B492F5600971F9A /* MainTitleView.swift */; };
 		11B0FCF82B4FD04D00971F9A /* QuestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */; };
@@ -77,7 +79,6 @@
 		1107A3A62B2B32D4009B1C51 /* SignUpInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformationViewController.swift; sourceTree = "<group>"; };
 		1107A3A82B2D894C009B1C51 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		1107A3AA2B2D8985009B1C51 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
 		1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetManager.swift; sourceTree = "<group>"; };
 		1107A3EF2B3FF026009B1C51 /* OurryNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OurryNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1107A3F12B3FF026009B1C51 /* OurryNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurryNetworkTests.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		115E26692B161BFE00FCBEE8 /* Color+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extention.swift"; sourceTree = "<group>"; };
 		11793E4F2B1731A4008FC22C /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		11793E542B188321008FC22C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		11793E572B188370008FC22C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		11793E5A2B1883AB008FC22C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		11793E5C2B188459008FC22C /* UIViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extention.swift"; sourceTree = "<group>"; };
 		11793E5E2B1885BF008FC22C /* BlueShadowTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueShadowTextField.swift; sourceTree = "<group>"; };
@@ -114,6 +114,10 @@
 		11793E752B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetEmailVerificationViewController.swift; sourceTree = "<group>"; };
 		11793E772B24B47B008FC22C /* LoginBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBackButton.swift; sourceTree = "<group>"; };
 		11793E7B2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetNewPasswordViewController.swift; sourceTree = "<group>"; };
+		119177D72B7E000500A3A4F9 /* EmailVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewModel.swift; sourceTree = "<group>"; };
+		119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
+		119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
 		11B0FCE62B483B8600971F9A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11B0FCE82B492F5600971F9A /* MainTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleView.swift; sourceTree = "<group>"; };
 		11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableCell.swift; sourceTree = "<group>"; };
@@ -248,10 +252,9 @@
 		11793E562B188361008FC22C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				11793E572B188370008FC22C /* AuthService.swift */,
 				1107A3A82B2D894C009B1C51 /* LoginManager.swift */,
-				1107A3E72B3AAA98009B1C51 /* CreateAccountManager.swift */,
 				1107A3E92B3AAF7C009B1C51 /* PasswordResetManager.swift */,
+				119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */,
 				1102F9902B563DA0009FA539 /* KeychainHelper.swift */,
 			);
 			path = Managers;
@@ -261,6 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				11793E5A2B1883AB008FC22C /* LoginViewModel.swift */,
+				119177D72B7E000500A3A4F9 /* EmailVerificationViewModel.swift */,
+				119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */,
+				119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */,
+				119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */,
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
 				1102F9932B5D49DC009FA539 /* SelectCategoryViewController.swift in Sources */,
 				11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */,
@@ -476,7 +483,6 @@
 				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
 				11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
-				11793E582B188370008FC22C /* AuthService.swift in Sources */,
 				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
 				1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */,
@@ -484,15 +490,17 @@
 				1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */,
 				1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */,
 				1102F9912B563DA0009FA539 /* KeychainHelper.swift in Sources */,
+				119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */,
 				1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */,
 				11B0FCE72B483B8600971F9A /* MainViewController.swift in Sources */,
 				11793E612B188610008FC22C /* PlaneTextField.swift in Sources */,
 				11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
 				11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */,
-				1107A3E82B3AAA98009B1C51 /* CreateAccountManager.swift in Sources */,
+				119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */,
 				1107A3A52B2B327A009B1C51 /* SignUpPasswordViewController.swift in Sources */,
 				11B0FCFC2B4FD0D200971F9A /* Date+Extention.swift in Sources */,
+				119177D82B7E000500A3A4F9 /* EmailVerificationViewModel.swift in Sources */,
 				115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */,
 				11793E5B2B1883AB008FC22C /* LoginViewModel.swift in Sources */,
 				11B0FCFA2B4FD07700971F9A /* CategoryCell.swift in Sources */,

@@ -8,8 +8,8 @@
 import Foundation
 
 protocol LoginViewModelDelegate: AnyObject {
-    func loginDidSucceed(jwtToken: String)
-    func loginDidFail(error: AuthError)
+    func loginDidSucceed(jwt: String)
+    func loginDidFail(message: String)
 }
 
 class LoginViewModel {
@@ -30,10 +30,22 @@ class LoginViewModel {
             switch result {
             case .success(let jwtToken):
                 // 로그인 성공
-                self.delegate?.loginDidSucceed(jwtToken: jwtToken)
+                self.delegate?.loginDidSucceed(jwt: jwtToken)
             case .failure(let error):
                 // 로그인 실패
-                self.delegate?.loginDidFail(error: error)
+                let errorMessage: String
+                switch error {
+                case .networkError(let networkError):
+                    errorMessage = networkError.localizedDescription
+                case .apiError(code: let code, message: let message):
+                    errorMessage = message
+                case .parsingError:
+                    errorMessage = "잘못된 서버 응답입니다."
+                case .invalidResponse:
+                    errorMessage = "알 수 없는 오류가 발생했습니다."
+                }
+                
+                self.delegate?.loginDidFail(message: errorMessage)
             }
         }
     }

@@ -10,6 +10,9 @@ import SnapKit
 
 class SignUpEmailViewController: UIViewController {
     
+    //MARK: - Properties
+    private let emailVerificationViewModel = EmailVerificationViewModel()
+    
     private let emailTitle: UILabel = {
         let title = UILabel()
         title.text = "이메일 인증"
@@ -231,21 +234,45 @@ class SignUpEmailViewController: UIViewController {
         }
     }
 
+    // 인증 코드 전송 요청하기
     @objc private func verificationButtonTapped() {
-        //TODO: 인증 코드 전송 로직 구현
-        startCountdown()
-        showAuthField()
-        verificationButton.setTitle("인증번호 전송됨", for: .normal)
-        verificationButton.isEnabled = false
-        verificationButton.backgroundColor = .gray
+        guard let email = emailTextField.text else { return }
+        
+        emailVerificationViewModel.requestVerificationCode(email: email) { result in
+            switch result {
+            case .success(let message):
+                print(message)
+                self.startCountdown()
+                self.showAuthField()
+                self.verificationButton.setTitle("인증번호 전송됨", for: .normal)
+                self.verificationButton.isEnabled = false
+                self.verificationButton.backgroundColor = .gray
+            case .failure(let error):
+                switch error {
+                case .parsingError:
+                    // JSON 파싱 오류 처리
+                    print("JSON parsing error")
+                
+                case .networkError(let networkError):
+                    // 네트워크 오류 처리
+                    print("Network error: \(networkError.localizedDescription)")
+
+                case .invalidResponse:
+                    print("잘못된 응답")
+                    
+                case .apiError(let code, let message):
+                    // API 에러 처리
+                    print("API error - Code: \(code), Message: \(message)")
+                }
+            }
+        }
     }
     
+    // 인증 코드 확인하기
     @objc private func authConfirmButtonTapped() {
-        let alert = UIAlertController(title: "인증이 완료되었습니다.", message: nil, preferredStyle: .alert)
+        guard let email = emailTextField.text, let code = authInputTextField.text else { return }
         
-        let loginAction = UIAlertAction(title: "확인", style: .default) { _ in
-            //TODO: 인증 코드 확인 로직 구현
-            print("인증 코드 확인 로직 구현")
+        let successAction = UIAlertAction(title: "확인", style: .default) { _ in
             self.emailTextField.isUserInteractionEnabled = false
             self.emailTextField.backgroundColor = .systemGray6
             self.emailTextField.textColor = .systemGray
@@ -262,12 +289,42 @@ class SignUpEmailViewController: UIViewController {
             self.authInputTextField.textColor = .systemGray
             
             self.authConfirmButton.isEnabled = false
-            
         }
         
-        alert.addAction(loginAction)
-        self.doneButtonAction()
-        present(alert, animated: true, completion: nil)
+        emailVerificationViewModel.verifyCode(email: email, code: code) { result in
+            switch result {
+            case .success(let message):
+                print(message)
+                let alert = UIAlertController(title: "인증 완료", message: "인증이 완료되었습니다.", preferredStyle: .alert)
+                alert.addAction(successAction)
+                
+                self.doneButtonAction()
+                self.present(alert, animated: true, completion: nil)
+                
+            // 실패한 경우
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .apiError(code: let code, message: let message):
+                    print("API 에러 - 코드: \(code), 메시지: \(message)")
+                    errorMessage = "API 에러 - 코드: \(code), 메시지: \(message)"
+                    
+                case .networkError(let underlyingError):
+                    print("네트워크 에러: \(underlyingError)")
+                    errorMessage = "네트워크 에러: \(underlyingError)"
+                case .parsingError:
+                    print("데이터 파싱 에러")
+                    errorMessage = "데이터 파싱 에러"
+                case .invalidResponse:
+                    print("유효하지 않은 응답")
+                    errorMessage = "유효하지 않은 응답"
+                }
+                let alert = UIAlertController(title: "인증 오류", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 
     private func startCountdown() {
@@ -295,6 +352,9 @@ class SignUpEmailViewController: UIViewController {
     
     @objc private func goNextPage() {
         let signUpPasswordViewController = SignUpPasswordViewController()
+        guard let email = emailTextField.text else { return }
+    
+        signUpPasswordViewController.email = email
         navigationController?.pushViewController(signUpPasswordViewController, animated:true)
     }
     
