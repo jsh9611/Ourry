@@ -11,14 +11,14 @@ import SnapKit
 class IconTextView: UIView {
     let iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.tintColor = .lightGray
+        iconImageView.tintColor = .darkGray
         iconImageView.contentMode = .scaleAspectFit
         return iconImageView
     }()
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()

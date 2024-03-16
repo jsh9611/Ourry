@@ -19,9 +19,16 @@ class QuestionTableCell: UITableViewCell {
         return label
     }()
     
+    let contentLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        return label
+    }()
+    
     let authorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.font = .preferredFont(forTextStyle: .callout)
         return label
     }()
@@ -61,6 +68,7 @@ class QuestionTableCell: UITableViewCell {
         contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
         
         contentView.addSubview(titleLabel)
+        contentView.addSubview(contentLabel)
         contentView.addSubview(authorLabel)
         contentView.addSubview(answerView)
         contentView.addSubview(commentView)
@@ -86,9 +94,16 @@ class QuestionTableCell: UITableViewCell {
             make.right.lessThanOrEqualTo(contentView).offset(-10)
         }
         
-        authorLabel.snp.makeConstraints { make in
-            make.left.equalTo(contentView).offset(10)
-            make.bottom.equalTo(contentView).offset(-10)
+        contentLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.left.equalTo(contentView).offset(10)
+            $0.right.lessThanOrEqualTo(contentView).offset(-10)
+        }
+        
+        authorLabel.snp.makeConstraints {
+            $0.left.equalTo(contentView).offset(10)
+            $0.top.equalTo(contentLabel.snp.bottom).offset(8)
+            $0.bottom.equalTo(contentView).offset(-10)
         }
         
         let infoStackView = UIStackView(arrangedSubviews: [answerView, commentView, createdView])
@@ -106,9 +121,10 @@ class QuestionTableCell: UITableViewCell {
         
     }
     
-    func configure(title: String, author: String, answer: Int, comment: Int, date: Date) {
+    func configure(title: String, content: String, author: String, answer: Int, comment: Int, date: Date) {
         titleLabel.text = title
         authorLabel.text = author
+        contentLabel.text = content
         
         answerView.textLabel.text = "\(answer)"
         commentView.textLabel.text = "\(comment)"

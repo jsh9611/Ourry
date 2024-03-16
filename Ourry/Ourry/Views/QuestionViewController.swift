@@ -8,14 +8,36 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
-    private let categoryLabel: UILabel = {
+    
+    var questionId: Int?
+    private let mainViewModel = MainViewModel()
+    private var questionDeatail = QuestionDetail(
+        title: "",
+        content: "",
+        category: "",
+        nickname: "",
+        pollCnt: 0,
+        responseCnt: 0,
+        createdAt: nil,
+        choices: [],
+        solutions: [],
+        replies: []
+    )
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    private var categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Category"
         label.font = .systemFont(ofSize: 11, weight: .light)
         label.textColor = .gray
         label.numberOfLines = 0
-
+        
         return label
     }()
     
@@ -26,7 +48,7 @@ class QuestionViewController: UIViewController {
         label.textColor = .black
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
-
+        
         return label
     }()
     
@@ -34,7 +56,7 @@ class QuestionViewController: UIViewController {
         let containerView = UIView()
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 5
-
+        
         
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person.fill")
@@ -42,12 +64,12 @@ class QuestionViewController: UIViewController {
         
         containerView.addSubview(imageView)
         imageView.snp.makeConstraints {
-          $0.height.equalTo(24)
-          $0.centerX.equalToSuperview()
-          $0.centerY.equalToSuperview()
+            $0.height.equalTo(24)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
         
-       return containerView
+        return containerView
     }()
     
     private let nicknameLabel: UILabel = {
@@ -57,7 +79,7 @@ class QuestionViewController: UIViewController {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-
+        
         return label
     }()
     
@@ -68,44 +90,20 @@ class QuestionViewController: UIViewController {
         label.textColor = .black
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-
+        
         return label
     }()
     
-//    private let descriptionTextView: UITextView = {
-//        let textView = UITextView()
-//        textView.autocorrectionType = .no
-//        textView.spellCheckingType = .no
-//        textView.font = .systemFont(ofSize: 16)
-//        textView.layer.cornerRadius = 18
-//        textView.backgroundColor = .white
-//        textView.tintColor = .blueShadowColor
-//        textView.textContainerInset = UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
-//        textView.isScrollEnabled = false
-//        
-//        textView.autocapitalizationType = .none
-//        textView.layer.masksToBounds = false
-//        textView.layer.shadowColor = UIColor.blueShadowColor.cgColor
-//        textView.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        textView.layer.shadowOpacity = 1.0
-//        textView.layer.shadowRadius = 4.0
-//        return textView
-//    }()
-    
-    private let divider: UIView = {
-        let divider = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 40))
-        divider.backgroundColor = .lightGray
-        return divider
-    }()
+    private let commentDivider = CommentDivider()
     
     private let descriptionUILabel: UILabel = {
         let label = UILabel()
-        label.text = "오늘 저녁 메뉴를 추천해주세요.오늘 저녁 메뉴를 추천해주세요.오늘 저녁 메뉴를 추천해주세요."
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.text = "저녁 메뉴를 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지 모르겠어 뭐먹을지모르겠어 뭐먹을지 모르겠어 뭐먹을지 모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지 모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지 모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 뭐먹을지모르겠어 "
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textColor = .black
-        label.numberOfLines = 3
+        label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-
+        
         return label
     }()
     
@@ -114,9 +112,9 @@ class QuestionViewController: UIViewController {
         let label = UILabel()
         label.text = "응답 결과 확인"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .gray
+        label.textColor = .black
         label.numberOfLines = 0
-
+        
         return label
     }()
     
@@ -130,7 +128,8 @@ class QuestionViewController: UIViewController {
         setNavigationBar()
         setQuestionInfoUI()
         setChartUI()
-
+        
+        loadQuestion(questionId: questionId)
     }
     
     //MARK: - UI
@@ -143,7 +142,7 @@ class QuestionViewController: UIViewController {
         let alertButton = UIBarButtonItem(image: UIImage(systemName: "bell"), primaryAction: UIAction{ _ in
             // alert on/off action
         })
-
+        
         self.navigationItem.rightBarButtonItems = [settingButton, alertButton]
         self.navigationController?.navigationBar.tintColor = .black
     }
@@ -185,20 +184,20 @@ class QuestionViewController: UIViewController {
             $0.leading.equalTo(profileImageView.snp.trailing).offset(8)
         }
         
-        view.addSubview(divider)
-        divider.snp.makeConstraints {
+        view.addSubview(commentDivider)
+        commentDivider.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(16)
-            $0.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(16)
-            $0.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-16)
+            $0.leading.equalTo(view).offset(16)
+            $0.trailing.equalTo(view).offset(-16)
         }
         
         view.addSubview(descriptionUILabel)
         descriptionUILabel.snp.makeConstraints {
-            $0.top.equalTo(divider.snp.bottom).offset(16)
+            $0.top.equalTo(commentDivider.snp.bottom).offset(16)
             $0.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(16)
             $0.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-16)
         }
-//        descriptionUILabel.text = "\(view.frame.width)"
+        //        descriptionUILabel.text = "\(view.frame.width)"
     }
     
     // 차트
