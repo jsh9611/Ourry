@@ -123,7 +123,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-    func loadData() {
+    private func loadData() {
         mainViewModel.requestQuestionList() { result in
             switch result {
             case .success(let responseData):
@@ -143,6 +143,7 @@ class MainViewController: UIViewController {
                 default:
                     errorMessage = "알 수 없는 에러가 발생했습니다."
                 }
+                // 토큰 만료되었을 때 갱신하고나서 다시 요청하는게 필요함
                 
                 let alert = UIAlertController(title: "인증 오류", message: errorMessage, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -170,11 +171,13 @@ class MainViewController: UIViewController {
         switch selectedCategoryIndex {
         case 0:
             loadData()
+            print("reload main table view")
         default:
             print(selectedCategoryIndex, categories[selectedCategoryIndex])
             // loadCategoryData \(selectedCategoryIndex)
         }
-        print("reload main table view")
+        
+        
         
         // 토큰이 만료되었을 때 로그인화면으로
         if "SUCCESS" == "Failure" {
@@ -226,6 +229,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 // MARK: - 질문 목록 / UITableViewDelegate, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         questionList.count
     }
@@ -256,9 +262,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedQuestion = questionList[indexPath.item]
         
         //MARK: - 질문 내용에 대한 상세 페이지를 push로 이동
-        let questionViewController = QuestionViewController()
-        //TODO: - selectedQuestion.questionId
-        questionViewController.questionId = 2
+//        let _ = QuestionViewController()
+        let questionViewController = ProfileViewController(vm: mainViewModel)
+        questionViewController.questionId = selectedQuestion.id
         print(selectedQuestion.title)
         
         self.navigationController?.pushViewController(questionViewController, animated: true)

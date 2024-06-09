@@ -1,14 +1,14 @@
 //
-//  MainViewModel.swift
+//  AddQuestionViewModel.swift
 //  Ourry
 //
-//  Created by SeongHoon Jang on 3/16/24.
+//  Created by SeongHoon Jang on 5/6/24.
 //
 
 import Foundation
 import Alamofire
 
-class MainViewModel {
+class AddQuestionViewModel {
     
     private let session: Session
     
@@ -70,54 +70,32 @@ class MainViewModel {
             }
     }
     
-    func reissueToken(completion: @escaping (Result<String, AuthError>) -> Void) {
-        let url = Endpoint.reissueToken.url
-        let encoding: JSONEncoding = JSONEncoding.default
-        
-        guard let authorization = KeychainHelper.read(forAccount: "access_token"),
-              let refresh = KeychainHelper.read(forAccount: "refresh_token") else {
+    func addQuestionRequest(questionData: QuestionData, completion: @escaping (Result<String, AuthError>) -> Void) {
+        let url = Endpoint.addQuestion.url
+        let encoder: ParameterEncoder = JSONParameterEncoder.default
+        guard let authorization = KeychainHelper.read(forAccount: "access_token") else {
             completion(.failure(.invalidResponse))
             return
         }
         
-        let headers: HTTPHeaders =  [
-            "Authorization" : authorization,
-            "Refresh" : refresh
-        ]
+        let headers: HTTPHeaders =  ["Authorization" : authorization]
         
         session
-            .request(url, method: .post, parameters: nil, encoding: encoding, headers: headers)
+            .request(url, method: .post, parameters: questionData, encoder: encoder, headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: Empty.self, emptyResponseCodes: [200]) { response in
                 switch response.result {
                 case .success:
-                    if let httpResponse = response.response,
-                       let authorization = httpResponse.headers["Authorization"],
-                       let refresh = httpResponse.headers["Refresh"] {
-                        
-                        KeychainHelper.update(token: authorization, forAccount: "access_token")
-                        KeychainHelper.update(token: refresh, forAccount: "refresh_token")
-                        completion(.success("asdf"))
-                    } else {
-                        print("Token Update 에러")
-                        completion(.failure(.expiredToken))
-                    }
-                    
-                case .failure(_):
+                    completion(.success("성공"))
+                case .failure:
                     if let data = response.data,
                        let authResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data),
-                       authResponse.code == "A002"{
-                        
+                       authResponse.code == "A002" {
                         completion(.failure(.expiredToken))
-                        
                     } else {
-                        
                         completion(.failure(.invalidResponse))
-                        
                     }
                 }
             }
     }
 }
-
-

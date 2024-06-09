@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol SelectCategoryVCDelegate: AnyObject {
-    func didSelectCategory(_ category: String)
+    func didSelectCategory(_ category: String, _ tag: Int)
 }
 
 class SelectCategoryViewController: UIViewController {
@@ -38,13 +38,13 @@ class SelectCategoryViewController: UIViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalTo(self.additionalSafeAreaInsets)
         }
-
-        for category in catogorys {
+        
+        for i in 0..<catogorys.count {
             let button = UIButton()
             
             button.tintColor = .blue
             button.backgroundColor = .white
-            button.setTitle("\(category)", for: .normal)
+            button.setTitle("\(catogorys[i])", for: .normal)
             button.setTitleColor(.black, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16)
 
@@ -52,17 +52,18 @@ class SelectCategoryViewController: UIViewController {
             button.layer.shadowOffset = CGSize(width: 1, height: 1)
             button.layer.shadowOpacity = 1.0
             button.layer.shadowRadius = 4.0
+            button.tag = i
             
             button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
             
             categoryStackView.addArrangedSubview(button)
+            
         }
-        
     }
     
     @objc func categoryButtonTapped(_ sender: UIButton) {
         if let category = sender.titleLabel?.text {
-            delegate?.didSelectCategory(category)
+            delegate?.didSelectCategory(category, sender.tag + 1)
         }
     }
 

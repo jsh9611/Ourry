@@ -256,13 +256,13 @@ class SignUpEmailViewController: UIViewController {
                 case .networkError(let networkError):
                     // 네트워크 오류 처리
                     print("Network error: \(networkError.localizedDescription)")
-
-                case .invalidResponse:
-                    print("잘못된 응답")
                     
                 case .apiError(let code, let message):
                     // API 에러 처리
                     print("API error - Code: \(code), Message: \(message)")
+                    
+                default:
+                    print("잘못된 응답")
                 }
             }
         }
@@ -315,7 +315,7 @@ class SignUpEmailViewController: UIViewController {
                 case .parsingError:
                     print("데이터 파싱 에러")
                     errorMessage = "데이터 파싱 에러"
-                case .invalidResponse:
+                default:
                     print("유효하지 않은 응답")
                     errorMessage = "유효하지 않은 응답"
                 }

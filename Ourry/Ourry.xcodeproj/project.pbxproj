@@ -31,6 +31,8 @@
 		1107A4142B42E868009B1C51 /* mock_m007.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4132B42E868009B1C51 /* mock_m007.json */; };
 		1107A4162B42E892009B1C51 /* mock_pwReset.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4152B42E892009B1C51 /* mock_pwReset.json */; };
 		1107A4182B42E8A6009B1C51 /* mock_m005.json in Resources */ = {isa = PBXBuildFile; fileRef = 1107A4172B42E8A6009B1C51 /* mock_m005.json */; };
+		112BB60C2BD3768B0077C2D7 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 112BB60B2BD3768B0077C2D7 /* Then */; };
+		112BB61F2BD3C4590077C2D7 /* UITableView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112BB61E2BD3C4590077C2D7 /* UITableView+Extention.swift */; };
 		115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26512B1618BE00FCBEE8 /* AppDelegate.swift */; };
 		115E26542B1618BE00FCBEE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */; };
 		115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26552B1618BE00FCBEE8 /* LoginViewController.swift */; };
@@ -38,7 +40,6 @@
 		115E265E2B1618C000FCBEE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115E265C2B1618C000FCBEE8 /* LaunchScreen.storyboard */; };
 		115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115E26692B161BFE00FCBEE8 /* Color+Extention.swift */; };
 		115E266D2B161EA300FCBEE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 115E266C2B161EA300FCBEE8 /* SnapKit */; };
-		11793E502B1731A4008FC22C /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E4F2B1731A4008FC22C /* TempViewController.swift */; };
 		11793E552B188321008FC22C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E542B188321008FC22C /* User.swift */; };
 		11793E5B2B1883AB008FC22C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5A2B1883AB008FC22C /* LoginViewModel.swift */; };
 		11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11793E5C2B188459008FC22C /* UIViewController+Extention.swift */; };
@@ -53,8 +54,6 @@
 		119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */; };
 		119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */; };
 		119177E72B84DF9700A3A4F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119177E62B84DF9700A3A4F9 /* Endpoint.swift */; };
-		119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178082B90615700A3A4F9 /* QuestionViewController.swift */; };
-		119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119178352B9DA58200A3A4F9 /* BarChartView.swift */; };
 		11B0FCE72B483B8600971F9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE62B483B8600971F9A /* MainViewController.swift */; };
 		11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCE82B492F5600971F9A /* MainTitleView.swift */; };
 		11B0FCF82B4FD04D00971F9A /* QuestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */; };
@@ -62,6 +61,16 @@
 		11B0FCFC2B4FD0D200971F9A /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFB2B4FD0D200971F9A /* Date+Extention.swift */; };
 		11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */; };
 		11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */; };
+		11B9F3662C10532D008E7597 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3652C10532D008E7597 /* Choice.swift */; };
+		11B9F3692C105B47008E7597 /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3682C105B47008E7597 /* QuestionDetailViewController.swift */; };
+		11B9F36C2C105BB3008E7597 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F36B2C105BB3008E7597 /* PostCell.swift */; };
+		11B9F36E2C105BD6008E7597 /* ChartHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F36D2C105BD6008E7597 /* ChartHeaderCell.swift */; };
+		11B9F3702C105C09008E7597 /* ChartBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F36F2C105C09008E7597 /* ChartBarCell.swift */; };
+		11B9F3722C105C31008E7597 /* CommentsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3712C105C31008E7597 /* CommentsHeaderCell.swift */; };
+		11B9F3742C105D45008E7597 /* ReplyTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3732C105D45008E7597 /* ReplyTextFieldCell.swift */; };
+		11B9F3762C105EAD008E7597 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3752C105EAD008E7597 /* ModalViewController.swift */; };
+		11B9F3782C105EE2008E7597 /* SolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3772C105EE2008E7597 /* SolutionCell.swift */; };
+		11B9F37A2C105EFD008E7597 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9F3792C105EFD008E7597 /* ReplyCell.swift */; };
 		11C807D52BA57DE400978CBA /* Ourry-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11C807D42BA57DE400978CBA /* Ourry-Info.plist */; };
 		11C807D82BA58F8200978CBA /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807D72BA58F8200978CBA /* APIKey.swift */; };
 		11C807DA2BA5927100978CBA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807D92BA5927100978CBA /* MainViewModel.swift */; };
@@ -69,6 +78,8 @@
 		11C807DE2BA5972300978CBA /* QuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807DD2BA5972300978CBA /* QuestionInfo.swift */; };
 		11C807E12BA5B04100978CBA /* CommentDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807E02BA5B04100978CBA /* CommentDivider.swift */; };
 		11C807E32BA5B46100978CBA /* QuestionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C807E22BA5B46100978CBA /* QuestionDetail.swift */; };
+		11E934282BE8F53E00B43F24 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E934272BE8F53E00B43F24 /* QuestionData.swift */; };
+		11E9342A2BE8F65500B43F24 /* AddQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E934292BE8F65500B43F24 /* AddQuestionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +116,7 @@
 		1107A4132B42E868009B1C51 /* mock_m007.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m007.json; sourceTree = "<group>"; };
 		1107A4152B42E892009B1C51 /* mock_pwReset.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_pwReset.json; sourceTree = "<group>"; };
 		1107A4172B42E8A6009B1C51 /* mock_m005.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_m005.json; sourceTree = "<group>"; };
+		112BB61E2BD3C4590077C2D7 /* UITableView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extention.swift"; sourceTree = "<group>"; };
 		115E264E2B1618BE00FCBEE8 /* Ourry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ourry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115E26512B1618BE00FCBEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115E26532B1618BE00FCBEE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +126,6 @@
 		115E265F2B1618C000FCBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115E26662B1618E800FCBEE8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		115E26692B161BFE00FCBEE8 /* Color+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extention.swift"; sourceTree = "<group>"; };
-		11793E4F2B1731A4008FC22C /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		11793E542B188321008FC22C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11793E5A2B1883AB008FC22C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		11793E5C2B188459008FC22C /* UIViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extention.swift"; sourceTree = "<group>"; };
@@ -129,8 +140,6 @@
 		119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		119177DD2B80D93A00A3A4F9 /* CreateAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountManager.swift; sourceTree = "<group>"; };
 		119177E62B84DF9700A3A4F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		119178082B90615700A3A4F9 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		119178352B9DA58200A3A4F9 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		11B0FCE62B483B8600971F9A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11B0FCE82B492F5600971F9A /* MainTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleView.swift; sourceTree = "<group>"; };
 		11B0FCF72B4FD04D00971F9A /* QuestionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableCell.swift; sourceTree = "<group>"; };
@@ -138,6 +147,16 @@
 		11B0FCFB2B4FD0D200971F9A /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		11B0FCFF2B527CC900971F9A /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		11B9F3652C10532D008E7597 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		11B9F3682C105B47008E7597 /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
+		11B9F36B2C105BB3008E7597 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		11B9F36D2C105BD6008E7597 /* ChartHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderCell.swift; sourceTree = "<group>"; };
+		11B9F36F2C105C09008E7597 /* ChartBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarCell.swift; sourceTree = "<group>"; };
+		11B9F3712C105C31008E7597 /* CommentsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsHeaderCell.swift; sourceTree = "<group>"; };
+		11B9F3732C105D45008E7597 /* ReplyTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyTextFieldCell.swift; sourceTree = "<group>"; };
+		11B9F3752C105EAD008E7597 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		11B9F3772C105EE2008E7597 /* SolutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionCell.swift; sourceTree = "<group>"; };
+		11B9F3792C105EFD008E7597 /* ReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
 		11C807D42BA57DE400978CBA /* Ourry-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ourry-Info.plist"; sourceTree = "<group>"; };
 		11C807D72BA58F8200978CBA /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		11C807D92BA5927100978CBA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +164,8 @@
 		11C807DD2BA5972300978CBA /* QuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfo.swift; sourceTree = "<group>"; };
 		11C807E02BA5B04100978CBA /* CommentDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDivider.swift; sourceTree = "<group>"; };
 		11C807E22BA5B46100978CBA /* QuestionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetail.swift; sourceTree = "<group>"; };
+		11E934272BE8F53E00B43F24 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		11E934292BE8F65500B43F24 /* AddQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1107A3B12B301024009B1C51 /* Alamofire in Frameworks */,
+				112BB60C2BD3768B0077C2D7 /* Then in Frameworks */,
 				115E266D2B161EA300FCBEE8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +268,7 @@
 				115E26692B161BFE00FCBEE8 /* Color+Extention.swift */,
 				11B0FCFB2B4FD0D200971F9A /* Date+Extention.swift */,
 				11793E5C2B188459008FC22C /* UIViewController+Extention.swift */,
+				112BB61E2BD3C4590077C2D7 /* UITableView+Extention.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,7 +280,9 @@
 				1107A3AA2B2D8985009B1C51 /* Login.swift */,
 				11C807DB2BA5961500978CBA /* ErrorResponse.swift */,
 				11C807DD2BA5972300978CBA /* QuestionInfo.swift */,
+				11E934272BE8F53E00B43F24 /* QuestionData.swift */,
 				11C807E22BA5B46100978CBA /* QuestionDetail.swift */,
+				11B9F3652C10532D008E7597 /* Choice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,11 +290,11 @@
 		11793E522B1882FC008FC22C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11B9F3672C105B2A008E7597 /* QuestionDetail */,
 				11C807DF2BA5AF3100978CBA /* AddQuestion */,
 				11B0FCE52B483B7600971F9A /* Main */,
 				11793E702B22EBE3008FC22C /* Components */,
 				11793E6D2B22EB42008FC22C /* Member */,
-				11793E4F2B1731A4008FC22C /* TempViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +318,7 @@
 				119177D92B7FD14300A3A4F9 /* CreateAccountViewModel.swift */,
 				119177DB2B80A81B00A3A4F9 /* PasswordResetViewModel.swift */,
 				11C807D92BA5927100978CBA /* MainViewModel.swift */,
+				11E934292BE8F65500B43F24 /* AddQuestionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -346,22 +372,12 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		119178072B90607900A3A4F9 /* Question */ = {
-			isa = PBXGroup;
-			children = (
-				119178082B90615700A3A4F9 /* QuestionViewController.swift */,
-				119178352B9DA58200A3A4F9 /* BarChartView.swift */,
-			);
-			name = Question;
-			sourceTree = "<group>";
-		};
 		11B0FCE52B483B7600971F9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				11B0FCE62B483B8600971F9A /* MainViewController.swift */,
 				11B0FCE82B492F5600971F9A /* MainTitleView.swift */,
 				11B0FCEE2B4BD35F00971F9A /* MainCell */,
-				119178072B90607900A3A4F9 /* Question */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -374,6 +390,30 @@
 				11B0FCFD2B4FDA4C00971F9A /* IconTextView.swift */,
 			);
 			name = MainCell;
+			sourceTree = "<group>";
+		};
+		11B9F3672C105B2A008E7597 /* QuestionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				11B9F36A2C105B8C008E7597 /* Cell */,
+				11B9F3682C105B47008E7597 /* QuestionDetailViewController.swift */,
+				11B9F3752C105EAD008E7597 /* ModalViewController.swift */,
+			);
+			name = QuestionDetail;
+			sourceTree = "<group>";
+		};
+		11B9F36A2C105B8C008E7597 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				11B9F36B2C105BB3008E7597 /* PostCell.swift */,
+				11B9F36D2C105BD6008E7597 /* ChartHeaderCell.swift */,
+				11B9F36F2C105C09008E7597 /* ChartBarCell.swift */,
+				11B9F3712C105C31008E7597 /* CommentsHeaderCell.swift */,
+				11B9F3732C105D45008E7597 /* ReplyTextFieldCell.swift */,
+				11B9F3772C105EE2008E7597 /* SolutionCell.swift */,
+				11B9F3792C105EFD008E7597 /* ReplyCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		11C807D62BA57E2500978CBA /* Config */ = {
@@ -432,6 +472,7 @@
 			packageProductDependencies = (
 				115E266C2B161EA300FCBEE8 /* SnapKit */,
 				1107A3B02B301024009B1C51 /* Alamofire */,
+				112BB60B2BD3768B0077C2D7 /* Then */,
 			);
 			productName = Ourry;
 			productReference = 115E264E2B1618BE00FCBEE8 /* Ourry.app */;
@@ -468,6 +509,7 @@
 			packageReferences = (
 				115E266B2B161EA300FCBEE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1107A3AF2B301024009B1C51 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				112BB60A2BD3768B0077C2D7 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 115E264F2B1618BE00FCBEE8 /* Products */;
 			projectDirPath = "";
@@ -526,38 +568,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C807DC2BA5961500978CBA /* ErrorResponse.swift in Sources */,
-				119178092B90615700A3A4F9 /* QuestionViewController.swift in Sources */,
 				11B0FCE92B492F5600971F9A /* MainTitleView.swift in Sources */,
-				119178362B9DA58200A3A4F9 /* BarChartView.swift in Sources */,
 				119177DE2B80D93A00A3A4F9 /* CreateAccountManager.swift in Sources */,
 				115E266A2B161BFE00FCBEE8 /* Color+Extention.swift in Sources */,
 				11C807E32BA5B46100978CBA /* QuestionDetail.swift in Sources */,
 				1102F9932B5D49DC009FA539 /* SelectCategoryViewController.swift in Sources */,
+				11B9F3742C105D45008E7597 /* ReplyTextFieldCell.swift in Sources */,
 				11C807E12BA5B04100978CBA /* CommentDivider.swift in Sources */,
+				11B9F3722C105C31008E7597 /* CommentsHeaderCell.swift in Sources */,
 				11B0FD002B527CC900971F9A /* AddQuestionViewController.swift in Sources */,
 				11793E742B22F160008FC22C /* LoginNextButton.swift in Sources */,
 				1107A3F92B42C9D4009B1C51 /* MockURLProtocol.swift in Sources */,
 				11793E782B24B47B008FC22C /* LoginBackButton.swift in Sources */,
 				115E26562B1618BE00FCBEE8 /* LoginViewController.swift in Sources */,
 				11793E7C2B25A40D008FC22C /* PasswordResetNewPasswordViewController.swift in Sources */,
-				11793E502B1731A4008FC22C /* TempViewController.swift in Sources */,
+				11E9342A2BE8F65500B43F24 /* AddQuestionViewModel.swift in Sources */,
 				11B0FCFE2B4FDA4C00971F9A /* IconTextView.swift in Sources */,
 				11C807DA2BA5927100978CBA /* MainViewModel.swift in Sources */,
+				11B9F3662C10532D008E7597 /* Choice.swift in Sources */,
 				11793E5D2B188459008FC22C /* UIViewController+Extention.swift in Sources */,
 				1107A3A32B29DF16009B1C51 /* SignUpEmailViewController.swift in Sources */,
 				115E26522B1618BE00FCBEE8 /* AppDelegate.swift in Sources */,
+				11B9F3782C105EE2008E7597 /* SolutionCell.swift in Sources */,
+				11B9F3702C105C09008E7597 /* ChartBarCell.swift in Sources */,
 				1107A3A92B2D894C009B1C51 /* LoginManager.swift in Sources */,
+				11B9F36C2C105BB3008E7597 /* PostCell.swift in Sources */,
+				11B9F36E2C105BD6008E7597 /* ChartHeaderCell.swift in Sources */,
 				11B0FCF82B4FD04D00971F9A /* QuestionTableCell.swift in Sources */,
 				119177E72B84DF9700A3A4F9 /* Endpoint.swift in Sources */,
 				1107A3A72B2B32D4009B1C51 /* SignUpInformationViewController.swift in Sources */,
+				112BB61F2BD3C4590077C2D7 /* UITableView+Extention.swift in Sources */,
 				1107A3AB2B2D8985009B1C51 /* Login.swift in Sources */,
+				11E934282BE8F53E00B43F24 /* QuestionData.swift in Sources */,
 				1102F9912B563DA0009FA539 /* KeychainHelper.swift in Sources */,
 				119177DC2B80A81B00A3A4F9 /* PasswordResetViewModel.swift in Sources */,
+				11B9F37A2C105EFD008E7597 /* ReplyCell.swift in Sources */,
 				1107A3EA2B3AAF7C009B1C51 /* PasswordResetManager.swift in Sources */,
+				11B9F3692C105B47008E7597 /* QuestionDetailViewController.swift in Sources */,
 				11B0FCE72B483B8600971F9A /* MainViewController.swift in Sources */,
 				11793E612B188610008FC22C /* PlaneTextField.swift in Sources */,
 				11793E762B24AF80008FC22C /* PasswordResetEmailVerificationViewController.swift in Sources */,
 				11793E552B188321008FC22C /* User.swift in Sources */,
+				11B9F3762C105EAD008E7597 /* ModalViewController.swift in Sources */,
 				11793E5F2B1885BF008FC22C /* BlueShadowTextField.swift in Sources */,
 				11C807DE2BA5972300978CBA /* QuestionInfo.swift in Sources */,
 				119177DA2B7FD14300A3A4F9 /* CreateAccountViewModel.swift in Sources */,
@@ -606,7 +658,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 1.0;
@@ -635,7 +687,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
 				MARKETING_VERSION = 1.0;
@@ -703,7 +755,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -761,7 +813,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -785,7 +837,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,7 +868,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -874,6 +926,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		112BB60A2BD3768B0077C2D7 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		115E266B2B161EA300FCBEE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -889,6 +949,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1107A3AF2B301024009B1C51 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		112BB60B2BD3768B0077C2D7 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112BB60A2BD3768B0077C2D7 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 		115E266C2B161EA300FCBEE8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

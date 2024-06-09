@@ -7,7 +7,7 @@
 
 import UIKit
 
-////MARK: - 로그인 Next 버튼
+//MARK: - 로그인 Next 버튼
 class LoginNextButton: UIButton {
     
     var isEnable: Bool = false {

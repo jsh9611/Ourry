@@ -41,7 +41,7 @@ class LoginViewModel {
                     errorMessage = "에러코드 \(code): \(message)"
                 case .parsingError:
                     errorMessage = "잘못된 서버 응답입니다."
-                case .invalidResponse:
+                default:
                     errorMessage = "알 수 없는 오류가 발생했습니다."
                 }
                 
