@@ -18,7 +18,10 @@ class CreateAccountManager {
     func registration(email: String, password: String, nickname: String, phone: String, completion: @escaping (Result<String, AuthError>) -> Void) {
         let url = Endpoint.signup.url
         let parameters: [String: Any] = ["email": email, "password": password, "nickname": nickname, "phone": phone]
-        let headers: HTTPHeaders =  ["Content-Type": "application/json"]
+        // 데이터 저장을 위한 Mock Token
+        let headers: HTTPHeaders =  [
+            "FirebaseCloudMessaging": "FirebaseCloudMessaging : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGg0ODgxQG5hdmVyLmNvbSIsIkF1dGhvcml6YXRpb24iOiJST0xFX1VTRVIiLCJpYXQiOjE3MDU4NDg3MjksImV4cCI6MTcwNTg0ODczMH0.D2sLQjfyUCZSaRPDDDF_ll9QVTOcXZfnF6uSSuwVK6w"
+        ]
         
         session
             .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)

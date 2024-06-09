@@ -59,9 +59,7 @@ class QuestionTableCell: UITableViewCell {
         // 그림자 효과
         contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = false
-//        contentView.layer.borderColor = UIColor.red.cgColor
-//        contentView.layer.borderWidth = 2
-        
+
         contentView.layer.shadowRadius = 4.0
         contentView.layer.shadowOpacity = 1.0
         contentView.layer.shadowColor = UIColor.blueShadowColor.cgColor
