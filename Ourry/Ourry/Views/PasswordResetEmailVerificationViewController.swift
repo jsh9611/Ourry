@@ -332,7 +332,7 @@ class PasswordResetEmailVerificationViewController: UIViewController {
                 case .parsingError:
                     print("데이터 파싱 에러")
                     errorMessage = "데이터 파싱 에러"
-                case .invalidResponse:
+                default:
                     print("유효하지 않은 응답")
                     errorMessage = "유효하지 않은 응답"
                 }

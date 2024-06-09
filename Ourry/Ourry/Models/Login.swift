@@ -23,6 +23,8 @@ enum AuthError: Error, Equatable {
     case apiError(code: String, message: String)
     case parsingError
     case invalidResponse
+    case expiredToken
+    
 }
 
 enum LoginResult {
