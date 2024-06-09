@@ -11,14 +11,17 @@ import SnapKit
 class AddQuestionViewController: UIViewController {
     //MARK: - Properties
     
+    private let addQuestionViewModel = AddQuestionViewModel()
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
+    
+    private var categoryNumber = 0
     
     // Bar Button Item
     private lazy var cancelButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
         button.tintColor = .black
-        button.isEnabled = true
         return button
     }()
     
@@ -62,27 +65,6 @@ class AddQuestionViewController: UIViewController {
         
         return button
     }()
-    
-//    var categoryButtonTitle: String = "카테고리를 선택하세요123"
-//    
-//    private lazy var categoryButton: UIButton = {
-//        let button = UIButton()
-//        button.tintColor = .black
-//        button.backgroundColor = .white
-//        button.setTitle(categoryButtonTitle, for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.titleLabel?.font = .systemFont(ofSize: 16)
-//        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-//        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
-//        
-//        button.layer.masksToBounds = false
-//        button.layer.shadowColor = UIColor.blueShadowColor.cgColor
-//        button.layer.shadowOffset = CGSize(width: 1, height: 1)
-//        button.layer.shadowOpacity = 1.0
-//        button.layer.shadowRadius = 4.0
-//        
-//        return button
-//    }()
     
     // 제목
     private let titleLabel: UILabel = {
@@ -132,7 +114,8 @@ class AddQuestionViewController: UIViewController {
     }()
     
     // 선택지
-    var chunks: [Chunk] = []  // 각 덩어리에 대한 정보를 저장하는 배열
+    private var chunks: [Chunk] = []  // 각 덩어리에 대한 정보를 저장하는 배열
+    
     private lazy var optionStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -164,15 +147,9 @@ class AddQuestionViewController: UIViewController {
         }
 
         scrollView.addSubview(contentView)
-//        contentView.backgroundColor = .green
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
-//            $0.leading.trailing.top.equalTo(scrollView)
-//            $0.leading.equalToSuperview() (scrollView.snp.leading)
-//            $0.trailing.equalToSuperview()(scrollView.snp.trailing)
-//            $0.top.equalToSuperview()
             $0.width.height.equalTo(view)
-//            $0.height.equalTo(view)
         }
     }
     
@@ -286,8 +263,36 @@ class AddQuestionViewController: UIViewController {
     }
     
     @objc func finishButtonTapped() {
-        print("finish")
-        self.dismiss(animated: true, completion: nil)
+        //TODO: - 질문추가요청
+        let title = titleTextField.text ?? "타이틀"
+        let content = descriptionTextView.text ?? "내용"
+        let categoryId = categoryNumber
+        let choices = chunks.enumerated().map{
+            Select(detail: $0.1.textField?.text ?? "선택지", sequence: $0.0)
+        }
+        
+        let questionData = QuestionData(title: title, content: content, categoryId: categoryId, choices: choices)
+        
+        addQuestionViewModel.addQuestionRequest(questionData: questionData) { result in
+            switch result {
+            case .success(_):
+                print("성공")
+                self.dismiss(animated: true, completion: nil)
+            case .failure(_):
+                print("실패")
+            }
+        }
+
+    }
+    
+    // 모든 입력이 완료되었는지 확인
+    private func checkQuestionInfo() {
+        guard let title = titleTextField.text,
+              !title.isEmpty else { return }
+
+        print(titleTextField.text ?? "")
+        print(descriptionTextView.text ?? "")
+        finishButton.isEnabled = true
     }
     
     @objc func categoryButtonTapped() {
@@ -374,6 +379,7 @@ extension AddQuestionViewController: UITextFieldDelegate {
     @objc func removeChunk(sender: UIButton) {
         if let chunkIndex = chunks.firstIndex(where: { $0.deleteButton == sender }) {
             chunks.remove(at: chunkIndex)
+            print(categoryNumber, categoryButton2.titleLabel?.text ?? "zzz")
             sender.superview?.removeFromSuperview()
         }
     }
@@ -436,8 +442,9 @@ extension AddQuestionViewController: UITextFieldDelegate {
 
 //MARK: - SelectCategoryVCDelegate
 extension AddQuestionViewController: SelectCategoryVCDelegate {
-    func didSelectCategory(_ category: String) {
+    func didSelectCategory(_ category: String, _ tag: Int) {
         categoryButton2.setTitle(category, for: .normal)
+        categoryNumber = tag
         navigationController?.popViewController(animated: true)
     }
 }

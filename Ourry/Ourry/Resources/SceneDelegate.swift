@@ -11,15 +11,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let temp = MainViewController()
+        let temp = AddQuestionViewController()
         let nvc = UINavigationController(rootViewController: temp)
         window?.rootViewController = nvc
         window?.makeKeyAndVisible()
+        
 //        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
 //        
 //        if !isLaunched {
